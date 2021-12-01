@@ -5,5 +5,14 @@
   "main": "index.js",
   "repository": "git@github.com:yanyu-fe/vitepress-plugin-code-block.git",
   "author": "aibayanyu",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "vitepress dev docs --host",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
+  },
+  "devDependencies": {
+    "vite": "^2.6.14",
+    "vitepress": "^0.20.1"
+  }
 }
