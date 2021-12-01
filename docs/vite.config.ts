@@ -1,4 +1,5 @@
-import { defineConfig } from "vite"
+import { defineConfig,ModuleNode } from "vite"
+import { vitepressPluginDemoBlock } from "../plugins/demoBlock";
 
 export default defineConfig({
     server:{
@@ -6,5 +7,8 @@ export default defineConfig({
         fs:{
             strict:false
         }
-    }
+    },
+    plugins:[
+        vitepressPluginDemoBlock()
+    ]
 })
