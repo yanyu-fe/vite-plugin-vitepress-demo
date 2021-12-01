@@ -1,0 +1,9 @@
+{
+  "name": "vitepress-plugin-code-block",
+  "version": "1.0.0",
+  "description": "this is vitepress code block",
+  "main": "index.js",
+  "repository": "git@github.com:yanyu-fe/vitepress-plugin-code-block.git",
+  "author": "aibayanyu",
+  "license": "MIT"
+}
