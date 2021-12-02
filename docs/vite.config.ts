@@ -1,4 +1,4 @@
-import { defineConfig,ModuleNode } from "vite"
+import { defineConfig } from "vite"
 import { vitepressPluginDemoBlock } from "../plugins/demoBlock";
 
 export default defineConfig({

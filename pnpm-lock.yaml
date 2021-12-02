@@ -10,644 +10,826 @@ specifiers:
   prismjs: ^1.25.0
   vite: ^2.6.14
   vitepress: ^0.20.1
+  vue: ^3.2.23
 
 devDependencies:
-  '@rollup/pluginutils': 4.1.1
-  '@types/node': 16.11.11
-  chalk: 4.1.2
-  escape-html: 1.0.3
-  posthtml-parser: 0.10.1
-  posthtml-render: 3.0.0
-  prismjs: 1.25.0
-  vite: 2.6.14
-  vitepress: 0.20.1
+  '@rollup/pluginutils': registry.nlark.com/@rollup/pluginutils/4.1.1
+  '@types/node': registry.npmmirror.com/@types/node/16.11.11
+  chalk: registry.npmmirror.com/chalk/4.1.2
+  escape-html: registry.nlark.com/escape-html/1.0.3
+  posthtml-parser: registry.nlark.com/posthtml-parser/0.10.1
+  posthtml-render: registry.nlark.com/posthtml-render/3.0.0
+  prismjs: registry.nlark.com/prismjs/1.25.0
+  vite: registry.npmmirror.com/vite/2.6.14
+  vitepress: registry.npmmirror.com/vitepress/0.20.1
+  vue: registry.npmmirror.com/vue/3.2.23
 
 packages:
 
-  /@algolia/cache-browser-local-storage/4.11.0:
-    resolution: {integrity: sha1-HBaK3QCzmKhg22yGA54zsoQ6lCU=, tarball: '@algolia/cache-browser-local-storage/download/@algolia/cache-browser-local-storage-4.11.0.tgz'}
+  registry.nlark.com/@rollup/pluginutils/4.1.1:
+    resolution: {integrity: sha1-HU2obdTt7RVlalfZM/2iuaCNR+w=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@rollup/pluginutils/download/@rollup/pluginutils-4.1.1.tgz}
+    name: '@rollup/pluginutils'
+    version: 4.1.1
+    engines: {node: '>= 8.0.0'}
     dependencies:
-      '@algolia/cache-common': 4.11.0
+      estree-walker: registry.nlark.com/estree-walker/2.0.2
+      picomatch: registry.nlark.com/picomatch/2.3.0
     dev: true
 
-  /@algolia/cache-common/4.11.0:
-    resolution: {integrity: sha1-Bm/m1YsY5LAo2++buN4HxeIqNZQ=, tarball: '@algolia/cache-common/download/@algolia/cache-common-4.11.0.tgz'}
-    dev: true
-
-  /@algolia/cache-in-memory/4.11.0:
-    resolution: {integrity: sha1-djyMtlXm/SJhWI4EIU/KCVmsB8E=, tarball: '@algolia/cache-in-memory/download/@algolia/cache-in-memory-4.11.0.tgz'}
+  registry.nlark.com/ansi-styles/4.3.0:
+    resolution: {integrity: sha1-7dgDYornHATIWuegkG7a00tkiTc=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/ansi-styles/download/ansi-styles-4.3.0.tgz}
+    name: ansi-styles
+    version: 4.3.0
+    engines: {node: '>=8'}
     dependencies:
-      '@algolia/cache-common': 4.11.0
+      color-convert: registry.nlark.com/color-convert/2.0.1
     dev: true
 
-  /@algolia/client-account/4.11.0:
-    resolution: {integrity: sha1-Z/rdOwgCsBPrqqS0e7e6uuiSN04=, tarball: '@algolia/client-account/download/@algolia/client-account-4.11.0.tgz'}
+  registry.nlark.com/color-convert/2.0.1:
+    resolution: {integrity: sha1-ctOmjVmMm9s68q0ehPIdiWq9TeM=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/color-convert/download/color-convert-2.0.1.tgz}
+    name: color-convert
+    version: 2.0.1
+    engines: {node: '>=7.0.0'}
     dependencies:
-      '@algolia/client-common': 4.11.0
-      '@algolia/client-search': 4.11.0
-      '@algolia/transporter': 4.11.0
+      color-name: registry.nlark.com/color-name/1.1.4
     dev: true
 
-  /@algolia/client-analytics/4.11.0:
-    resolution: {integrity: sha1-y9yBKCBeLadJyvx55UcI0UxBOXQ=, tarball: '@algolia/client-analytics/download/@algolia/client-analytics-4.11.0.tgz'}
+  registry.nlark.com/color-name/1.1.4:
+    resolution: {integrity: sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/color-name/download/color-name-1.1.4.tgz}
+    name: color-name
+    version: 1.1.4
+    dev: true
+
+  registry.nlark.com/dom-serializer/1.3.2:
+    resolution: {integrity: sha1-YgZDfTLO767HFhgDIwx6ILwbTZE=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/dom-serializer/download/dom-serializer-1.3.2.tgz}
+    name: dom-serializer
+    version: 1.3.2
     dependencies:
-      '@algolia/client-common': 4.11.0
-      '@algolia/client-search': 4.11.0
-      '@algolia/requester-common': 4.11.0
-      '@algolia/transporter': 4.11.0
+      domelementtype: registry.nlark.com/domelementtype/2.2.0
+      domhandler: registry.npmmirror.com/domhandler/4.3.0
+      entities: registry.nlark.com/entities/2.2.0
     dev: true
 
-  /@algolia/client-common/4.11.0:
-    resolution: {integrity: sha1-mi0fb46q0lul1tTOMHulvYTm+Zk=, tarball: '@algolia/client-common/download/@algolia/client-common-4.11.0.tgz'}
+  registry.nlark.com/domelementtype/2.2.0:
+    resolution: {integrity: sha1-mgtsJ4LtahxzI9QiZxg9+b2LHVc=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/domelementtype/download/domelementtype-2.2.0.tgz}
+    name: domelementtype
+    version: 2.2.0
+    dev: true
+
+  registry.nlark.com/domutils/2.8.0:
+    resolution: {integrity: sha1-RDfe9dtuLR9dbuhZvZXKfQIEgTU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/domutils/download/domutils-2.8.0.tgz}
+    name: domutils
+    version: 2.8.0
     dependencies:
-      '@algolia/requester-common': 4.11.0
-      '@algolia/transporter': 4.11.0
+      dom-serializer: registry.nlark.com/dom-serializer/1.3.2
+      domelementtype: registry.nlark.com/domelementtype/2.2.0
+      domhandler: registry.npmmirror.com/domhandler/4.3.0
     dev: true
 
-  /@algolia/client-personalization/4.11.0:
-    resolution: {integrity: sha1-078Odg+F34drS69bgZlvCqOlmUA=, tarball: '@algolia/client-personalization/download/@algolia/client-personalization-4.11.0.tgz'}
+  registry.nlark.com/entities/2.2.0:
+    resolution: {integrity: sha1-CY3JDruD2N/6CJ1VJWs1HTTE2lU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/entities/download/entities-2.2.0.tgz}
+    name: entities
+    version: 2.2.0
+    dev: true
+
+  registry.nlark.com/entities/3.0.1:
+    resolution: {integrity: sha1-K4h8piWF6W2zkDSC0zbBAGwwAdQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/entities/download/entities-3.0.1.tgz}
+    name: entities
+    version: 3.0.1
+    engines: {node: '>=0.12'}
+    dev: true
+
+  registry.nlark.com/escape-html/1.0.3:
+    resolution: {integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/escape-html/download/escape-html-1.0.3.tgz}
+    name: escape-html
+    version: 1.0.3
+    dev: true
+
+  registry.nlark.com/estree-walker/2.0.2:
+    resolution: {integrity: sha1-UvAQF4wqTBF6d1fP6UKtt9LaTKw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/estree-walker/download/estree-walker-2.0.2.tgz}
+    name: estree-walker
+    version: 2.0.2
+    dev: true
+
+  registry.nlark.com/function-bind/1.1.1:
+    resolution: {integrity: sha1-pWiZ0+o8m6uHS7l3O3xe3pL0iV0=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/function-bind/download/function-bind-1.1.1.tgz}
+    name: function-bind
+    version: 1.1.1
+    dev: true
+
+  registry.nlark.com/has-flag/4.0.0:
+    resolution: {integrity: sha1-lEdx/ZyByBJlxNaUGGDaBrtZR5s=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/has-flag/download/has-flag-4.0.0.tgz}
+    name: has-flag
+    version: 4.0.0
+    engines: {node: '>=8'}
+    dev: true
+
+  registry.nlark.com/has/1.0.3:
+    resolution: {integrity: sha1-ci18v8H2qoJB8W3YFOAR4fQeh5Y=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/has/download/has-1.0.3.tgz}
+    name: has
+    version: 1.0.3
+    engines: {node: '>= 0.4.0'}
     dependencies:
-      '@algolia/client-common': 4.11.0
-      '@algolia/requester-common': 4.11.0
-      '@algolia/transporter': 4.11.0
+      function-bind: registry.nlark.com/function-bind/1.1.1
     dev: true
 
-  /@algolia/client-search/4.11.0:
-    resolution: {integrity: sha1-wRBdcVoqBLonIx7KhvXWYg9o9K4=, tarball: '@algolia/client-search/download/@algolia/client-search-4.11.0.tgz'}
+  registry.nlark.com/magic-string/0.25.7:
+    resolution: {integrity: sha1-P0l9b9NMZpxnmNy4IfLvMfVEUFE=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/magic-string/download/magic-string-0.25.7.tgz?cache=0&sync_timestamp=1631600344664&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmagic-string%2Fdownload%2Fmagic-string-0.25.7.tgz}
+    name: magic-string
+    version: 0.25.7
     dependencies:
-      '@algolia/client-common': 4.11.0
-      '@algolia/requester-common': 4.11.0
-      '@algolia/transporter': 4.11.0
+      sourcemap-codec: registry.nlark.com/sourcemap-codec/1.4.8
     dev: true
 
-  /@algolia/logger-common/4.11.0:
-    resolution: {integrity: sha1-usHC1Z0p3uN4tXQSyO3UNbl95mM=, tarball: '@algolia/logger-common/download/@algolia/logger-common-4.11.0.tgz'}
+  registry.nlark.com/path-parse/1.0.7:
+    resolution: {integrity: sha1-+8EUtgykKzDZ2vWFjkvWi77bZzU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/path-parse/download/path-parse-1.0.7.tgz}
+    name: path-parse
+    version: 1.0.7
     dev: true
 
-  /@algolia/logger-console/4.11.0:
-    resolution: {integrity: sha1-ztGeOrsi63gu1SaNUe+1qp7xCe8=, tarball: '@algolia/logger-console/download/@algolia/logger-console-4.11.0.tgz'}
+  registry.nlark.com/picomatch/2.3.0:
+    resolution: {integrity: sha1-8fBh3o9qS/AiiS4tEoI0+5gwKXI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/picomatch/download/picomatch-2.3.0.tgz}
+    name: picomatch
+    version: 2.3.0
+    engines: {node: '>=8.6'}
+    dev: true
+
+  registry.nlark.com/posthtml-parser/0.10.1:
+    resolution: {integrity: sha1-Y8QZMakznMLDKroU8GKG2Y8Qer8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/posthtml-parser/download/posthtml-parser-0.10.1.tgz}
+    name: posthtml-parser
+    version: 0.10.1
+    engines: {node: '>=12'}
     dependencies:
-      '@algolia/logger-common': 4.11.0
+      htmlparser2: registry.npmmirror.com/htmlparser2/7.2.0
     dev: true
 
-  /@algolia/requester-browser-xhr/4.11.0:
-    resolution: {integrity: sha1-+eGtVvGFQyqo3ejK1Tricf1dYYE=, tarball: '@algolia/requester-browser-xhr/download/@algolia/requester-browser-xhr-4.11.0.tgz'}
+  registry.nlark.com/posthtml-render/3.0.0:
+    resolution: {integrity: sha1-l75EkxSW9JW08HuZ6QPMcK1qMgU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/posthtml-render/download/posthtml-render-3.0.0.tgz}
+    name: posthtml-render
+    version: 3.0.0
+    engines: {node: '>=12'}
     dependencies:
-      '@algolia/requester-common': 4.11.0
+      is-json: registry.npmmirror.com/is-json/2.0.1
     dev: true
 
-  /@algolia/requester-common/4.11.0:
-    resolution: {integrity: sha1-0W3pjT/3JDS6w55NkV6rCANZRqk=, tarball: '@algolia/requester-common/download/@algolia/requester-common-4.11.0.tgz'}
+  registry.nlark.com/prismjs/1.25.0:
+    resolution: {integrity: sha1-b4It8b2tllc0sxCzFaIzFc+Zl1Y=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/prismjs/download/prismjs-1.25.0.tgz}
+    name: prismjs
+    version: 1.25.0
     dev: true
 
-  /@algolia/requester-node-http/4.11.0:
-    resolution: {integrity: sha1-vrK2to1fTOFa7IDt5iPwrJaZE2g=, tarball: '@algolia/requester-node-http/download/@algolia/requester-node-http-4.11.0.tgz'}
+  registry.nlark.com/resolve/1.20.0:
+    resolution: {integrity: sha1-YpoBP7P3B1XW8LeTXMHCxTeLGXU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/resolve/download/resolve-1.20.0.tgz}
+    name: resolve
+    version: 1.20.0
     dependencies:
-      '@algolia/requester-common': 4.11.0
+      is-core-module: registry.npmmirror.com/is-core-module/2.8.0
+      path-parse: registry.nlark.com/path-parse/1.0.7
     dev: true
 
-  /@algolia/transporter/4.11.0:
-    resolution: {integrity: sha1-qN48FzCTzs6wKya1dzlc47PUuW8=, tarball: '@algolia/transporter/download/@algolia/transporter-4.11.0.tgz'}
+  registry.nlark.com/source-map/0.6.1:
+    resolution: {integrity: sha1-dHIq8y6WFOnCh6jQu95IteLxomM=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/source-map/download/source-map-0.6.1.tgz}
+    name: source-map
+    version: 0.6.1
+    engines: {node: '>=0.10.0'}
+    dev: true
+
+  registry.nlark.com/sourcemap-codec/1.4.8:
+    resolution: {integrity: sha1-6oBL2UhXQC5pktBaOO8a41qatMQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/sourcemap-codec/download/sourcemap-codec-1.4.8.tgz}
+    name: sourcemap-codec
+    version: 1.4.8
+    dev: true
+
+  registry.npmmirror.com/@algolia/cache-browser-local-storage/4.11.0:
+    resolution: {integrity: sha1-HBaK3QCzmKhg22yGA54zsoQ6lCU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/cache-browser-local-storage/download/@algolia/cache-browser-local-storage-4.11.0.tgz}
+    name: '@algolia/cache-browser-local-storage'
+    version: 4.11.0
     dependencies:
-      '@algolia/cache-common': 4.11.0
-      '@algolia/logger-common': 4.11.0
-      '@algolia/requester-common': 4.11.0
+      '@algolia/cache-common': registry.npmmirror.com/@algolia/cache-common/4.11.0
     dev: true
 
-  /@babel/parser/7.16.4:
-    resolution: {integrity: sha512-6V0qdPUaiVHH3RtZeLIsc+6pDhbYzHR8ogA8w+f+Wc77DuXto19g2QUwveINoS34Uw+W8/hQDGJCx+i4n7xcng==, tarball: '@babel/parser/download/@babel/parser-7.16.4.tgz?cache=0&sync_timestamp=1637130396170&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Fparser%2Fdownload%2F%40babel%2Fparser-7.16.4.tgz'}
+  registry.npmmirror.com/@algolia/cache-common/4.11.0:
+    resolution: {integrity: sha1-Bm/m1YsY5LAo2++buN4HxeIqNZQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/cache-common/download/@algolia/cache-common-4.11.0.tgz}
+    name: '@algolia/cache-common'
+    version: 4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/cache-in-memory/4.11.0:
+    resolution: {integrity: sha1-djyMtlXm/SJhWI4EIU/KCVmsB8E=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/cache-in-memory/download/@algolia/cache-in-memory-4.11.0.tgz}
+    name: '@algolia/cache-in-memory'
+    version: 4.11.0
+    dependencies:
+      '@algolia/cache-common': registry.npmmirror.com/@algolia/cache-common/4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/client-account/4.11.0:
+    resolution: {integrity: sha1-Z/rdOwgCsBPrqqS0e7e6uuiSN04=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/client-account/download/@algolia/client-account-4.11.0.tgz}
+    name: '@algolia/client-account'
+    version: 4.11.0
+    dependencies:
+      '@algolia/client-common': registry.npmmirror.com/@algolia/client-common/4.11.0
+      '@algolia/client-search': registry.npmmirror.com/@algolia/client-search/4.11.0
+      '@algolia/transporter': registry.npmmirror.com/@algolia/transporter/4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/client-analytics/4.11.0:
+    resolution: {integrity: sha1-y9yBKCBeLadJyvx55UcI0UxBOXQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/client-analytics/download/@algolia/client-analytics-4.11.0.tgz}
+    name: '@algolia/client-analytics'
+    version: 4.11.0
+    dependencies:
+      '@algolia/client-common': registry.npmmirror.com/@algolia/client-common/4.11.0
+      '@algolia/client-search': registry.npmmirror.com/@algolia/client-search/4.11.0
+      '@algolia/requester-common': registry.npmmirror.com/@algolia/requester-common/4.11.0
+      '@algolia/transporter': registry.npmmirror.com/@algolia/transporter/4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/client-common/4.11.0:
+    resolution: {integrity: sha1-mi0fb46q0lul1tTOMHulvYTm+Zk=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/client-common/download/@algolia/client-common-4.11.0.tgz}
+    name: '@algolia/client-common'
+    version: 4.11.0
+    dependencies:
+      '@algolia/requester-common': registry.npmmirror.com/@algolia/requester-common/4.11.0
+      '@algolia/transporter': registry.npmmirror.com/@algolia/transporter/4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/client-personalization/4.11.0:
+    resolution: {integrity: sha1-078Odg+F34drS69bgZlvCqOlmUA=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/client-personalization/download/@algolia/client-personalization-4.11.0.tgz}
+    name: '@algolia/client-personalization'
+    version: 4.11.0
+    dependencies:
+      '@algolia/client-common': registry.npmmirror.com/@algolia/client-common/4.11.0
+      '@algolia/requester-common': registry.npmmirror.com/@algolia/requester-common/4.11.0
+      '@algolia/transporter': registry.npmmirror.com/@algolia/transporter/4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/client-search/4.11.0:
+    resolution: {integrity: sha1-wRBdcVoqBLonIx7KhvXWYg9o9K4=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/client-search/download/@algolia/client-search-4.11.0.tgz}
+    name: '@algolia/client-search'
+    version: 4.11.0
+    dependencies:
+      '@algolia/client-common': registry.npmmirror.com/@algolia/client-common/4.11.0
+      '@algolia/requester-common': registry.npmmirror.com/@algolia/requester-common/4.11.0
+      '@algolia/transporter': registry.npmmirror.com/@algolia/transporter/4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/logger-common/4.11.0:
+    resolution: {integrity: sha1-usHC1Z0p3uN4tXQSyO3UNbl95mM=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/logger-common/download/@algolia/logger-common-4.11.0.tgz}
+    name: '@algolia/logger-common'
+    version: 4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/logger-console/4.11.0:
+    resolution: {integrity: sha1-ztGeOrsi63gu1SaNUe+1qp7xCe8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/logger-console/download/@algolia/logger-console-4.11.0.tgz}
+    name: '@algolia/logger-console'
+    version: 4.11.0
+    dependencies:
+      '@algolia/logger-common': registry.npmmirror.com/@algolia/logger-common/4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/requester-browser-xhr/4.11.0:
+    resolution: {integrity: sha1-+eGtVvGFQyqo3ejK1Tricf1dYYE=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/requester-browser-xhr/download/@algolia/requester-browser-xhr-4.11.0.tgz}
+    name: '@algolia/requester-browser-xhr'
+    version: 4.11.0
+    dependencies:
+      '@algolia/requester-common': registry.npmmirror.com/@algolia/requester-common/4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/requester-common/4.11.0:
+    resolution: {integrity: sha1-0W3pjT/3JDS6w55NkV6rCANZRqk=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/requester-common/download/@algolia/requester-common-4.11.0.tgz}
+    name: '@algolia/requester-common'
+    version: 4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/requester-node-http/4.11.0:
+    resolution: {integrity: sha1-vrK2to1fTOFa7IDt5iPwrJaZE2g=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/requester-node-http/download/@algolia/requester-node-http-4.11.0.tgz}
+    name: '@algolia/requester-node-http'
+    version: 4.11.0
+    dependencies:
+      '@algolia/requester-common': registry.npmmirror.com/@algolia/requester-common/4.11.0
+    dev: true
+
+  registry.npmmirror.com/@algolia/transporter/4.11.0:
+    resolution: {integrity: sha1-qN48FzCTzs6wKya1dzlc47PUuW8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@algolia/transporter/download/@algolia/transporter-4.11.0.tgz}
+    name: '@algolia/transporter'
+    version: 4.11.0
+    dependencies:
+      '@algolia/cache-common': registry.npmmirror.com/@algolia/cache-common/4.11.0
+      '@algolia/logger-common': registry.npmmirror.com/@algolia/logger-common/4.11.0
+      '@algolia/requester-common': registry.npmmirror.com/@algolia/requester-common/4.11.0
+    dev: true
+
+  registry.npmmirror.com/@babel/parser/7.16.4:
+    resolution: {integrity: sha512-6V0qdPUaiVHH3RtZeLIsc+6pDhbYzHR8ogA8w+f+Wc77DuXto19g2QUwveINoS34Uw+W8/hQDGJCx+i4n7xcng==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@babel/parser/download/@babel/parser-7.16.4.tgz}
+    name: '@babel/parser'
+    version: 7.16.4
     engines: {node: '>=6.0.0'}
     hasBin: true
     dev: true
 
-  /@docsearch/css/1.0.0-alpha.28:
-    resolution: {integrity: sha1-yKLNjBuzpoVcUYkunb2rXUL+biM=, tarball: '@docsearch/css/download/@docsearch/css-1.0.0-alpha.28.tgz'}
+  registry.npmmirror.com/@docsearch/css/1.0.0-alpha.28:
+    resolution: {integrity: sha1-yKLNjBuzpoVcUYkunb2rXUL+biM=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@docsearch/css/download/@docsearch/css-1.0.0-alpha.28.tgz}
+    name: '@docsearch/css'
+    version: 1.0.0-alpha.28
     dev: true
 
-  /@docsearch/js/1.0.0-alpha.28:
-    resolution: {integrity: sha1-8P3nuKax4dinrh52VcQ9lZtFeys=, tarball: '@docsearch/js/download/@docsearch/js-1.0.0-alpha.28.tgz'}
+  registry.npmmirror.com/@docsearch/js/1.0.0-alpha.28:
+    resolution: {integrity: sha1-8P3nuKax4dinrh52VcQ9lZtFeys=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@docsearch/js/download/@docsearch/js-1.0.0-alpha.28.tgz}
+    name: '@docsearch/js'
+    version: 1.0.0-alpha.28
     dependencies:
-      '@docsearch/react': 1.0.0-alpha.28
-      preact: 10.6.2
+      '@docsearch/react': registry.npmmirror.com/@docsearch/react/1.0.0-alpha.28
+      preact: registry.npmmirror.com/preact/10.6.2
     transitivePeerDependencies:
       - react
       - react-dom
     dev: true
 
-  /@docsearch/react/1.0.0-alpha.28:
-    resolution: {integrity: sha1-TwOe15+LMzKxmldneyGa68UBDp0=, tarball: '@docsearch/react/download/@docsearch/react-1.0.0-alpha.28.tgz'}
+  registry.npmmirror.com/@docsearch/react/1.0.0-alpha.28:
+    resolution: {integrity: sha1-TwOe15+LMzKxmldneyGa68UBDp0=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@docsearch/react/download/@docsearch/react-1.0.0-alpha.28.tgz}
+    name: '@docsearch/react'
+    version: 1.0.0-alpha.28
     peerDependencies:
       react: ^16.8.0
       react-dom: ^16.8.0
     dependencies:
-      '@docsearch/css': 1.0.0-alpha.28
-      '@francoischalifour/autocomplete-core': 1.0.0-alpha.28
-      '@francoischalifour/autocomplete-preset-algolia': 1.0.0-alpha.28
-      algoliasearch: 4.11.0
+      '@docsearch/css': registry.npmmirror.com/@docsearch/css/1.0.0-alpha.28
+      '@francoischalifour/autocomplete-core': registry.npmmirror.com/@francoischalifour/autocomplete-core/1.0.0-alpha.28
+      '@francoischalifour/autocomplete-preset-algolia': registry.npmmirror.com/@francoischalifour/autocomplete-preset-algolia/1.0.0-alpha.28
+      algoliasearch: registry.npmmirror.com/algoliasearch/4.11.0
     dev: true
 
-  /@francoischalifour/autocomplete-core/1.0.0-alpha.28:
-    resolution: {integrity: sha1-a52EkSiOd/gx6bNF1GFiOw0/UAU=, tarball: '@francoischalifour/autocomplete-core/download/@francoischalifour/autocomplete-core-1.0.0-alpha.28.tgz'}
+  registry.npmmirror.com/@francoischalifour/autocomplete-core/1.0.0-alpha.28:
+    resolution: {integrity: sha1-a52EkSiOd/gx6bNF1GFiOw0/UAU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@francoischalifour/autocomplete-core/download/@francoischalifour/autocomplete-core-1.0.0-alpha.28.tgz}
+    name: '@francoischalifour/autocomplete-core'
+    version: 1.0.0-alpha.28
     dev: true
 
-  /@francoischalifour/autocomplete-preset-algolia/1.0.0-alpha.28:
-    resolution: {integrity: sha1-pa15lvQuQ+Ssu04AENZjdG0OmZc=, tarball: '@francoischalifour/autocomplete-preset-algolia/download/@francoischalifour/autocomplete-preset-algolia-1.0.0-alpha.28.tgz'}
+  registry.npmmirror.com/@francoischalifour/autocomplete-preset-algolia/1.0.0-alpha.28:
+    resolution: {integrity: sha1-pa15lvQuQ+Ssu04AENZjdG0OmZc=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@francoischalifour/autocomplete-preset-algolia/download/@francoischalifour/autocomplete-preset-algolia-1.0.0-alpha.28.tgz}
+    name: '@francoischalifour/autocomplete-preset-algolia'
+    version: 1.0.0-alpha.28
     dev: true
 
-  /@rollup/pluginutils/4.1.1:
-    resolution: {integrity: sha1-HU2obdTt7RVlalfZM/2iuaCNR+w=, tarball: '@rollup/pluginutils/download/@rollup/pluginutils-4.1.1.tgz'}
-    engines: {node: '>= 8.0.0'}
-    dependencies:
-      estree-walker: 2.0.2
-      picomatch: 2.3.0
+  registry.npmmirror.com/@types/node/16.11.11:
+    resolution: {integrity: sha512-KB0sixD67CeecHC33MYn+eYARkqTheIRNuu97y2XMjR7Wu3XibO1vaY6VBV6O/a89SPI81cEUIYT87UqUWlZNw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/download/@types/node-16.11.11.tgz}
+    name: '@types/node'
+    version: 16.11.11
     dev: true
 
-  /@types/node/16.11.11:
-    resolution: {integrity: sha512-KB0sixD67CeecHC33MYn+eYARkqTheIRNuu97y2XMjR7Wu3XibO1vaY6VBV6O/a89SPI81cEUIYT87UqUWlZNw==, tarball: '@types/node/download/@types/node-16.11.11.tgz'}
-    dev: true
-
-  /@vitejs/plugin-vue/1.10.1_vite@2.6.14:
-    resolution: {integrity: sha512-oL76QETMSpVE9jIScirGB2bYJEVU/+r+g+K7oG+sXPs9TZljqveoVRsmLyXlMZTjpQkLL8gz527cW80NMGVKJg==, tarball: '@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.10.1.tgz'}
+  registry.npmmirror.com/@vitejs/plugin-vue/1.10.1_vite@2.6.14:
+    resolution: {integrity: sha512-oL76QETMSpVE9jIScirGB2bYJEVU/+r+g+K7oG+sXPs9TZljqveoVRsmLyXlMZTjpQkLL8gz527cW80NMGVKJg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.10.1.tgz}
+    id: registry.npmmirror.com/@vitejs/plugin-vue/1.10.1
+    name: '@vitejs/plugin-vue'
+    version: 1.10.1
     engines: {node: '>=12.0.0'}
     peerDependencies:
       vite: ^2.5.10
     dependencies:
-      vite: 2.6.14
+      vite: registry.npmmirror.com/vite/2.6.14
     dev: true
 
-  /@vue/compiler-core/3.2.23:
-    resolution: {integrity: sha512-4ZhiI/orx+7EJ1B+0zjgvXMV2uRN+XBfG06UN2sJfND9rH5gtEQT3QmO4erum1o6Irl7y754W8/KSaDJh4EUQg==, tarball: '@vue/compiler-core/download/@vue/compiler-core-3.2.23.tgz'}
+  registry.npmmirror.com/@vue/compiler-core/3.2.23:
+    resolution: {integrity: sha512-4ZhiI/orx+7EJ1B+0zjgvXMV2uRN+XBfG06UN2sJfND9rH5gtEQT3QmO4erum1o6Irl7y754W8/KSaDJh4EUQg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/compiler-core/download/@vue/compiler-core-3.2.23.tgz}
+    name: '@vue/compiler-core'
+    version: 3.2.23
     dependencies:
-      '@babel/parser': 7.16.4
-      '@vue/shared': 3.2.23
-      estree-walker: 2.0.2
-      source-map: 0.6.1
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.4
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.23
+      estree-walker: registry.nlark.com/estree-walker/2.0.2
+      source-map: registry.nlark.com/source-map/0.6.1
     dev: true
 
-  /@vue/compiler-dom/3.2.23:
-    resolution: {integrity: sha512-X2Nw8QFc5lgoK3kio5ktM95nqmLUH+q+N/PbV4kCHzF1avqv/EGLnAhaaF0Iu4bewNvHJAAhhwPZFeoV/22nbw==, tarball: '@vue/compiler-dom/download/@vue/compiler-dom-3.2.23.tgz'}
+  registry.npmmirror.com/@vue/compiler-dom/3.2.23:
+    resolution: {integrity: sha512-X2Nw8QFc5lgoK3kio5ktM95nqmLUH+q+N/PbV4kCHzF1avqv/EGLnAhaaF0Iu4bewNvHJAAhhwPZFeoV/22nbw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/compiler-dom/download/@vue/compiler-dom-3.2.23.tgz}
+    name: '@vue/compiler-dom'
+    version: 3.2.23
     dependencies:
-      '@vue/compiler-core': 3.2.23
-      '@vue/shared': 3.2.23
+      '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core/3.2.23
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.23
     dev: true
 
-  /@vue/compiler-sfc/3.2.23:
-    resolution: {integrity: sha512-Aw+pb50Q5zTjyvWod8mNKmYZDRGHJBptmNNWE+84ZxrzEztPgMz8cNYIzWGbwcFVkmJlhvioAMvKnB+LM/sjSA==, tarball: '@vue/compiler-sfc/download/@vue/compiler-sfc-3.2.23.tgz'}
+  registry.npmmirror.com/@vue/compiler-sfc/3.2.23:
+    resolution: {integrity: sha512-Aw+pb50Q5zTjyvWod8mNKmYZDRGHJBptmNNWE+84ZxrzEztPgMz8cNYIzWGbwcFVkmJlhvioAMvKnB+LM/sjSA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/compiler-sfc/download/@vue/compiler-sfc-3.2.23.tgz}
+    name: '@vue/compiler-sfc'
+    version: 3.2.23
     dependencies:
-      '@babel/parser': 7.16.4
-      '@vue/compiler-core': 3.2.23
-      '@vue/compiler-dom': 3.2.23
-      '@vue/compiler-ssr': 3.2.23
-      '@vue/ref-transform': 3.2.23
-      '@vue/shared': 3.2.23
-      estree-walker: 2.0.2
-      magic-string: 0.25.7
-      postcss: 8.4.4
-      source-map: 0.6.1
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.4
+      '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core/3.2.23
+      '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom/3.2.23
+      '@vue/compiler-ssr': registry.npmmirror.com/@vue/compiler-ssr/3.2.23
+      '@vue/ref-transform': registry.npmmirror.com/@vue/ref-transform/3.2.23
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.23
+      estree-walker: registry.nlark.com/estree-walker/2.0.2
+      magic-string: registry.nlark.com/magic-string/0.25.7
+      postcss: registry.npmmirror.com/postcss/8.4.4
+      source-map: registry.nlark.com/source-map/0.6.1
     dev: true
 
-  /@vue/compiler-ssr/3.2.23:
-    resolution: {integrity: sha512-Bqzn4jFyXPK1Ehqiq7e/czS8n62gtYF1Zfeu0DrR5uv+SBllh7LIvZjZU6+c8qbocAd3/T3I3gn2cZGmnDb6zg==, tarball: '@vue/compiler-ssr/download/@vue/compiler-ssr-3.2.23.tgz'}
+  registry.npmmirror.com/@vue/compiler-ssr/3.2.23:
+    resolution: {integrity: sha512-Bqzn4jFyXPK1Ehqiq7e/czS8n62gtYF1Zfeu0DrR5uv+SBllh7LIvZjZU6+c8qbocAd3/T3I3gn2cZGmnDb6zg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/compiler-ssr/download/@vue/compiler-ssr-3.2.23.tgz}
+    name: '@vue/compiler-ssr'
+    version: 3.2.23
     dependencies:
-      '@vue/compiler-dom': 3.2.23
-      '@vue/shared': 3.2.23
+      '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom/3.2.23
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.23
     dev: true
 
-  /@vue/reactivity/3.2.23:
-    resolution: {integrity: sha512-8RGVr/5Kpgb/EkCjgHXqttgA5IMc6n0lIXFY4TVbMkzdXrvaIhzBd7Te44oIDsTSYVKZLpfHd6/wEnuDqE8vFw==, tarball: '@vue/reactivity/download/@vue/reactivity-3.2.23.tgz'}
+  registry.npmmirror.com/@vue/reactivity/3.2.23:
+    resolution: {integrity: sha512-8RGVr/5Kpgb/EkCjgHXqttgA5IMc6n0lIXFY4TVbMkzdXrvaIhzBd7Te44oIDsTSYVKZLpfHd6/wEnuDqE8vFw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/reactivity/download/@vue/reactivity-3.2.23.tgz}
+    name: '@vue/reactivity'
+    version: 3.2.23
     dependencies:
-      '@vue/shared': 3.2.23
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.23
     dev: true
 
-  /@vue/ref-transform/3.2.23:
-    resolution: {integrity: sha512-gW0GD2PSAs/th7mC7tPB/UwpIQxclbApVtsDtscDmOJXb2+cdu60ny+SuHNgfrlUT/JqWKQHq7jFKO4woxLNaA==, tarball: '@vue/ref-transform/download/@vue/ref-transform-3.2.23.tgz'}
+  registry.npmmirror.com/@vue/ref-transform/3.2.23:
+    resolution: {integrity: sha512-gW0GD2PSAs/th7mC7tPB/UwpIQxclbApVtsDtscDmOJXb2+cdu60ny+SuHNgfrlUT/JqWKQHq7jFKO4woxLNaA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/ref-transform/download/@vue/ref-transform-3.2.23.tgz}
+    name: '@vue/ref-transform'
+    version: 3.2.23
     dependencies:
-      '@babel/parser': 7.16.4
-      '@vue/compiler-core': 3.2.23
-      '@vue/shared': 3.2.23
-      estree-walker: 2.0.2
-      magic-string: 0.25.7
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.4
+      '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core/3.2.23
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.23
+      estree-walker: registry.nlark.com/estree-walker/2.0.2
+      magic-string: registry.nlark.com/magic-string/0.25.7
     dev: true
 
-  /@vue/runtime-core/3.2.23:
-    resolution: {integrity: sha512-wSI5lmY2kCGLf89iiygqxVh6/5bsawz78Me9n1x4U2bHnN0yf3PWyuhN0WgIE8VfEaF7e75E333uboNEIFjgkg==, tarball: '@vue/runtime-core/download/@vue/runtime-core-3.2.23.tgz'}
+  registry.npmmirror.com/@vue/runtime-core/3.2.23:
+    resolution: {integrity: sha512-wSI5lmY2kCGLf89iiygqxVh6/5bsawz78Me9n1x4U2bHnN0yf3PWyuhN0WgIE8VfEaF7e75E333uboNEIFjgkg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/runtime-core/download/@vue/runtime-core-3.2.23.tgz}
+    name: '@vue/runtime-core'
+    version: 3.2.23
     dependencies:
-      '@vue/reactivity': 3.2.23
-      '@vue/shared': 3.2.23
+      '@vue/reactivity': registry.npmmirror.com/@vue/reactivity/3.2.23
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.23
     dev: true
 
-  /@vue/runtime-dom/3.2.23:
-    resolution: {integrity: sha512-z6lp0888NkLmxD9j2sGoll8Kb7J743s8s6w7GbiyUc4WZwm0KJ35B4qTFDMoIU0G7CatS6Z+yRTpPHc6srtByg==, tarball: '@vue/runtime-dom/download/@vue/runtime-dom-3.2.23.tgz'}
+  registry.npmmirror.com/@vue/runtime-dom/3.2.23:
+    resolution: {integrity: sha512-z6lp0888NkLmxD9j2sGoll8Kb7J743s8s6w7GbiyUc4WZwm0KJ35B4qTFDMoIU0G7CatS6Z+yRTpPHc6srtByg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/runtime-dom/download/@vue/runtime-dom-3.2.23.tgz}
+    name: '@vue/runtime-dom'
+    version: 3.2.23
     dependencies:
-      '@vue/runtime-core': 3.2.23
-      '@vue/shared': 3.2.23
-      csstype: 2.6.19
+      '@vue/runtime-core': registry.npmmirror.com/@vue/runtime-core/3.2.23
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.23
+      csstype: registry.npmmirror.com/csstype/2.6.19
     dev: true
 
-  /@vue/server-renderer/3.2.23_vue@3.2.23:
-    resolution: {integrity: sha512-mgQ2VAE5WjeZELJKNbwE69uiBNpN+3LyL0ZDki1bJWVwHD2fhPfx7pwyYuiucE81xz2LxVsyGxhKKUL997g8vw==, tarball: '@vue/server-renderer/download/@vue/server-renderer-3.2.23.tgz'}
+  registry.npmmirror.com/@vue/server-renderer/3.2.23_vue@3.2.23:
+    resolution: {integrity: sha512-mgQ2VAE5WjeZELJKNbwE69uiBNpN+3LyL0ZDki1bJWVwHD2fhPfx7pwyYuiucE81xz2LxVsyGxhKKUL997g8vw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/server-renderer/download/@vue/server-renderer-3.2.23.tgz}
+    id: registry.npmmirror.com/@vue/server-renderer/3.2.23
+    name: '@vue/server-renderer'
+    version: 3.2.23
     peerDependencies:
       vue: 3.2.23
     dependencies:
-      '@vue/compiler-ssr': 3.2.23
-      '@vue/shared': 3.2.23
-      vue: 3.2.23
+      '@vue/compiler-ssr': registry.npmmirror.com/@vue/compiler-ssr/3.2.23
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.23
+      vue: registry.npmmirror.com/vue/3.2.23
     dev: true
 
-  /@vue/shared/3.2.23:
-    resolution: {integrity: sha512-U+/Jefa0QfXUF2qVy9Dqlrb6HKJSr9/wJcM66wXmWcTOoqg7hOWzF4qruDle51pyF4x3wMn6TSH54UdjKjCKMA==, tarball: '@vue/shared/download/@vue/shared-3.2.23.tgz'}
+  registry.npmmirror.com/@vue/shared/3.2.23:
+    resolution: {integrity: sha512-U+/Jefa0QfXUF2qVy9Dqlrb6HKJSr9/wJcM66wXmWcTOoqg7hOWzF4qruDle51pyF4x3wMn6TSH54UdjKjCKMA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/shared/download/@vue/shared-3.2.23.tgz}
+    name: '@vue/shared'
+    version: 3.2.23
     dev: true
 
-  /algoliasearch/4.11.0:
-    resolution: {integrity: sha1-I0vvs6w1XAlAd/Dt83dyQLHuATw=, tarball: algoliasearch/download/algoliasearch-4.11.0.tgz}
+  registry.npmmirror.com/algoliasearch/4.11.0:
+    resolution: {integrity: sha1-I0vvs6w1XAlAd/Dt83dyQLHuATw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/algoliasearch/download/algoliasearch-4.11.0.tgz}
+    name: algoliasearch
+    version: 4.11.0
     dependencies:
-      '@algolia/cache-browser-local-storage': 4.11.0
-      '@algolia/cache-common': 4.11.0
-      '@algolia/cache-in-memory': 4.11.0
-      '@algolia/client-account': 4.11.0
-      '@algolia/client-analytics': 4.11.0
-      '@algolia/client-common': 4.11.0
-      '@algolia/client-personalization': 4.11.0
-      '@algolia/client-search': 4.11.0
-      '@algolia/logger-common': 4.11.0
-      '@algolia/logger-console': 4.11.0
-      '@algolia/requester-browser-xhr': 4.11.0
-      '@algolia/requester-common': 4.11.0
-      '@algolia/requester-node-http': 4.11.0
-      '@algolia/transporter': 4.11.0
+      '@algolia/cache-browser-local-storage': registry.npmmirror.com/@algolia/cache-browser-local-storage/4.11.0
+      '@algolia/cache-common': registry.npmmirror.com/@algolia/cache-common/4.11.0
+      '@algolia/cache-in-memory': registry.npmmirror.com/@algolia/cache-in-memory/4.11.0
+      '@algolia/client-account': registry.npmmirror.com/@algolia/client-account/4.11.0
+      '@algolia/client-analytics': registry.npmmirror.com/@algolia/client-analytics/4.11.0
+      '@algolia/client-common': registry.npmmirror.com/@algolia/client-common/4.11.0
+      '@algolia/client-personalization': registry.npmmirror.com/@algolia/client-personalization/4.11.0
+      '@algolia/client-search': registry.npmmirror.com/@algolia/client-search/4.11.0
+      '@algolia/logger-common': registry.npmmirror.com/@algolia/logger-common/4.11.0
+      '@algolia/logger-console': registry.npmmirror.com/@algolia/logger-console/4.11.0
+      '@algolia/requester-browser-xhr': registry.npmmirror.com/@algolia/requester-browser-xhr/4.11.0
+      '@algolia/requester-common': registry.npmmirror.com/@algolia/requester-common/4.11.0
+      '@algolia/requester-node-http': registry.npmmirror.com/@algolia/requester-node-http/4.11.0
+      '@algolia/transporter': registry.npmmirror.com/@algolia/transporter/4.11.0
     dev: true
 
-  /ansi-styles/4.3.0:
-    resolution: {integrity: sha1-7dgDYornHATIWuegkG7a00tkiTc=, tarball: ansi-styles/download/ansi-styles-4.3.0.tgz}
-    engines: {node: '>=8'}
-    dependencies:
-      color-convert: 2.0.1
-    dev: true
-
-  /chalk/4.1.2:
-    resolution: {integrity: sha1-qsTit3NKdAhnrrFr8CqtVWoeegE=, tarball: chalk/download/chalk-4.1.2.tgz}
+  registry.npmmirror.com/chalk/4.1.2:
+    resolution: {integrity: sha1-qsTit3NKdAhnrrFr8CqtVWoeegE=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/chalk/download/chalk-4.1.2.tgz}
+    name: chalk
+    version: 4.1.2
     engines: {node: '>=10'}
     dependencies:
-      ansi-styles: 4.3.0
-      supports-color: 7.2.0
+      ansi-styles: registry.nlark.com/ansi-styles/4.3.0
+      supports-color: registry.npmmirror.com/supports-color/7.2.0
     dev: true
 
-  /color-convert/2.0.1:
-    resolution: {integrity: sha1-ctOmjVmMm9s68q0ehPIdiWq9TeM=, tarball: color-convert/download/color-convert-2.0.1.tgz}
-    engines: {node: '>=7.0.0'}
-    dependencies:
-      color-name: 1.1.4
+  registry.npmmirror.com/csstype/2.6.19:
+    resolution: {integrity: sha512-ZVxXaNy28/k3kJg0Fou5MiYpp88j7H9hLZp8PDC3jV0WFjfH5E9xHb56L0W59cPbKbcHXeP4qyT8PrHp8t6LcQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/csstype/download/csstype-2.6.19.tgz}
+    name: csstype
+    version: 2.6.19
     dev: true
 
-  /color-name/1.1.4:
-    resolution: {integrity: sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=, tarball: color-name/download/color-name-1.1.4.tgz}
-    dev: true
-
-  /csstype/2.6.19:
-    resolution: {integrity: sha512-ZVxXaNy28/k3kJg0Fou5MiYpp88j7H9hLZp8PDC3jV0WFjfH5E9xHb56L0W59cPbKbcHXeP4qyT8PrHp8t6LcQ==, tarball: csstype/download/csstype-2.6.19.tgz}
-    dev: true
-
-  /dom-serializer/1.3.2:
-    resolution: {integrity: sha1-YgZDfTLO767HFhgDIwx6ILwbTZE=, tarball: dom-serializer/download/dom-serializer-1.3.2.tgz}
-    dependencies:
-      domelementtype: 2.2.0
-      domhandler: 4.3.0
-      entities: 2.2.0
-    dev: true
-
-  /domelementtype/2.2.0:
-    resolution: {integrity: sha1-mgtsJ4LtahxzI9QiZxg9+b2LHVc=, tarball: domelementtype/download/domelementtype-2.2.0.tgz}
-    dev: true
-
-  /domhandler/4.3.0:
-    resolution: {integrity: sha512-fC0aXNQXqKSFTr2wDNZDhsEYjCiYsDWl3D01kwt25hm1YIPyDGHvvi3rw+PLqHAl/m71MaiF7d5zvBr0p5UB2g==, tarball: domhandler/download/domhandler-4.3.0.tgz}
+  registry.npmmirror.com/domhandler/4.3.0:
+    resolution: {integrity: sha512-fC0aXNQXqKSFTr2wDNZDhsEYjCiYsDWl3D01kwt25hm1YIPyDGHvvi3rw+PLqHAl/m71MaiF7d5zvBr0p5UB2g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/domhandler/download/domhandler-4.3.0.tgz}
+    name: domhandler
+    version: 4.3.0
     engines: {node: '>= 4'}
     dependencies:
-      domelementtype: 2.2.0
+      domelementtype: registry.nlark.com/domelementtype/2.2.0
     dev: true
 
-  /domutils/2.8.0:
-    resolution: {integrity: sha1-RDfe9dtuLR9dbuhZvZXKfQIEgTU=, tarball: domutils/download/domutils-2.8.0.tgz}
-    dependencies:
-      dom-serializer: 1.3.2
-      domelementtype: 2.2.0
-      domhandler: 4.3.0
-    dev: true
-
-  /entities/2.2.0:
-    resolution: {integrity: sha1-CY3JDruD2N/6CJ1VJWs1HTTE2lU=, tarball: entities/download/entities-2.2.0.tgz}
-    dev: true
-
-  /entities/3.0.1:
-    resolution: {integrity: sha1-K4h8piWF6W2zkDSC0zbBAGwwAdQ=, tarball: entities/download/entities-3.0.1.tgz}
-    engines: {node: '>=0.12'}
-    dev: true
-
-  /esbuild-android-arm64/0.13.15:
-    resolution: {integrity: sha512-m602nft/XXeO8YQPUDVoHfjyRVPdPgjyyXOxZ44MK/agewFFkPa8tUo6lAzSWh5Ui5PB4KR9UIFTSBKh/RrCmg==, tarball: esbuild-android-arm64/download/esbuild-android-arm64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-android-arm64/0.13.15:
+    resolution: {integrity: sha512-m602nft/XXeO8YQPUDVoHfjyRVPdPgjyyXOxZ44MK/agewFFkPa8tUo6lAzSWh5Ui5PB4KR9UIFTSBKh/RrCmg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-android-arm64/download/esbuild-android-arm64-0.13.15.tgz}
+    name: esbuild-android-arm64
+    version: 0.13.15
     cpu: [arm64]
     os: [android]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-darwin-64/0.13.15:
-    resolution: {integrity: sha512-ihOQRGs2yyp7t5bArCwnvn2Atr6X4axqPpEdCFPVp7iUj4cVSdisgvEKdNR7yH3JDjW6aQDw40iQFoTqejqxvQ==, tarball: esbuild-darwin-64/download/esbuild-darwin-64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-darwin-64/0.13.15:
+    resolution: {integrity: sha512-ihOQRGs2yyp7t5bArCwnvn2Atr6X4axqPpEdCFPVp7iUj4cVSdisgvEKdNR7yH3JDjW6aQDw40iQFoTqejqxvQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-darwin-64/download/esbuild-darwin-64-0.13.15.tgz}
+    name: esbuild-darwin-64
+    version: 0.13.15
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-darwin-arm64/0.13.15:
-    resolution: {integrity: sha512-i1FZssTVxUqNlJ6cBTj5YQj4imWy3m49RZRnHhLpefFIh0To05ow9DTrXROTE1urGTQCloFUXTX8QfGJy1P8dQ==, tarball: esbuild-darwin-arm64/download/esbuild-darwin-arm64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-darwin-arm64/0.13.15:
+    resolution: {integrity: sha512-i1FZssTVxUqNlJ6cBTj5YQj4imWy3m49RZRnHhLpefFIh0To05ow9DTrXROTE1urGTQCloFUXTX8QfGJy1P8dQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-darwin-arm64/download/esbuild-darwin-arm64-0.13.15.tgz}
+    name: esbuild-darwin-arm64
+    version: 0.13.15
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-freebsd-64/0.13.15:
-    resolution: {integrity: sha512-G3dLBXUI6lC6Z09/x+WtXBXbOYQZ0E8TDBqvn7aMaOCzryJs8LyVXKY4CPnHFXZAbSwkCbqiPuSQ1+HhrNk7EA==, tarball: esbuild-freebsd-64/download/esbuild-freebsd-64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-freebsd-64/0.13.15:
+    resolution: {integrity: sha512-G3dLBXUI6lC6Z09/x+WtXBXbOYQZ0E8TDBqvn7aMaOCzryJs8LyVXKY4CPnHFXZAbSwkCbqiPuSQ1+HhrNk7EA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-freebsd-64/download/esbuild-freebsd-64-0.13.15.tgz}
+    name: esbuild-freebsd-64
+    version: 0.13.15
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-freebsd-arm64/0.13.15:
-    resolution: {integrity: sha512-KJx0fzEDf1uhNOZQStV4ujg30WlnwqUASaGSFPhznLM/bbheu9HhqZ6mJJZM32lkyfGJikw0jg7v3S0oAvtvQQ==, tarball: esbuild-freebsd-arm64/download/esbuild-freebsd-arm64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-freebsd-arm64/0.13.15:
+    resolution: {integrity: sha512-KJx0fzEDf1uhNOZQStV4ujg30WlnwqUASaGSFPhznLM/bbheu9HhqZ6mJJZM32lkyfGJikw0jg7v3S0oAvtvQQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-freebsd-arm64/download/esbuild-freebsd-arm64-0.13.15.tgz}
+    name: esbuild-freebsd-arm64
+    version: 0.13.15
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-linux-32/0.13.15:
-    resolution: {integrity: sha512-ZvTBPk0YWCLMCXiFmD5EUtB30zIPvC5Itxz0mdTu/xZBbbHJftQgLWY49wEPSn2T/TxahYCRDWun5smRa0Tu+g==, tarball: esbuild-linux-32/download/esbuild-linux-32-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-linux-32/0.13.15:
+    resolution: {integrity: sha512-ZvTBPk0YWCLMCXiFmD5EUtB30zIPvC5Itxz0mdTu/xZBbbHJftQgLWY49wEPSn2T/TxahYCRDWun5smRa0Tu+g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-32/download/esbuild-linux-32-0.13.15.tgz}
+    name: esbuild-linux-32
+    version: 0.13.15
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-linux-64/0.13.15:
-    resolution: {integrity: sha512-eCKzkNSLywNeQTRBxJRQ0jxRCl2YWdMB3+PkWFo2BBQYC5mISLIVIjThNtn6HUNqua1pnvgP5xX0nHbZbPj5oA==, tarball: esbuild-linux-64/download/esbuild-linux-64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-linux-64/0.13.15:
+    resolution: {integrity: sha512-eCKzkNSLywNeQTRBxJRQ0jxRCl2YWdMB3+PkWFo2BBQYC5mISLIVIjThNtn6HUNqua1pnvgP5xX0nHbZbPj5oA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-64/download/esbuild-linux-64-0.13.15.tgz}
+    name: esbuild-linux-64
+    version: 0.13.15
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-linux-arm/0.13.15:
-    resolution: {integrity: sha512-wUHttDi/ol0tD8ZgUMDH8Ef7IbDX+/UsWJOXaAyTdkT7Yy9ZBqPg8bgB/Dn3CZ9SBpNieozrPRHm0BGww7W/jA==, tarball: esbuild-linux-arm/download/esbuild-linux-arm-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-linux-arm/0.13.15:
+    resolution: {integrity: sha512-wUHttDi/ol0tD8ZgUMDH8Ef7IbDX+/UsWJOXaAyTdkT7Yy9ZBqPg8bgB/Dn3CZ9SBpNieozrPRHm0BGww7W/jA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-arm/download/esbuild-linux-arm-0.13.15.tgz}
+    name: esbuild-linux-arm
+    version: 0.13.15
     cpu: [arm]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-linux-arm64/0.13.15:
-    resolution: {integrity: sha512-bYpuUlN6qYU9slzr/ltyLTR9YTBS7qUDymO8SV7kjeNext61OdmqFAzuVZom+OLW1HPHseBfJ/JfdSlx8oTUoA==, tarball: esbuild-linux-arm64/download/esbuild-linux-arm64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-linux-arm64/0.13.15:
+    resolution: {integrity: sha512-bYpuUlN6qYU9slzr/ltyLTR9YTBS7qUDymO8SV7kjeNext61OdmqFAzuVZom+OLW1HPHseBfJ/JfdSlx8oTUoA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-arm64/download/esbuild-linux-arm64-0.13.15.tgz}
+    name: esbuild-linux-arm64
+    version: 0.13.15
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-linux-mips64le/0.13.15:
-    resolution: {integrity: sha512-KlVjIG828uFPyJkO/8gKwy9RbXhCEUeFsCGOJBepUlpa7G8/SeZgncUEz/tOOUJTcWMTmFMtdd3GElGyAtbSWg==, tarball: esbuild-linux-mips64le/download/esbuild-linux-mips64le-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-linux-mips64le/0.13.15:
+    resolution: {integrity: sha512-KlVjIG828uFPyJkO/8gKwy9RbXhCEUeFsCGOJBepUlpa7G8/SeZgncUEz/tOOUJTcWMTmFMtdd3GElGyAtbSWg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-mips64le/download/esbuild-linux-mips64le-0.13.15.tgz}
+    name: esbuild-linux-mips64le
+    version: 0.13.15
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-linux-ppc64le/0.13.15:
-    resolution: {integrity: sha512-h6gYF+OsaqEuBjeesTBtUPw0bmiDu7eAeuc2OEH9S6mV9/jPhPdhOWzdeshb0BskRZxPhxPOjqZ+/OqLcxQwEQ==, tarball: esbuild-linux-ppc64le/download/esbuild-linux-ppc64le-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-linux-ppc64le/0.13.15:
+    resolution: {integrity: sha512-h6gYF+OsaqEuBjeesTBtUPw0bmiDu7eAeuc2OEH9S6mV9/jPhPdhOWzdeshb0BskRZxPhxPOjqZ+/OqLcxQwEQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-ppc64le/download/esbuild-linux-ppc64le-0.13.15.tgz}
+    name: esbuild-linux-ppc64le
+    version: 0.13.15
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-netbsd-64/0.13.15:
-    resolution: {integrity: sha512-3+yE9emwoevLMyvu+iR3rsa+Xwhie7ZEHMGDQ6dkqP/ndFzRHkobHUKTe+NCApSqG5ce2z4rFu+NX/UHnxlh3w==, tarball: esbuild-netbsd-64/download/esbuild-netbsd-64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-netbsd-64/0.13.15:
+    resolution: {integrity: sha512-3+yE9emwoevLMyvu+iR3rsa+Xwhie7ZEHMGDQ6dkqP/ndFzRHkobHUKTe+NCApSqG5ce2z4rFu+NX/UHnxlh3w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-netbsd-64/download/esbuild-netbsd-64-0.13.15.tgz}
+    name: esbuild-netbsd-64
+    version: 0.13.15
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-openbsd-64/0.13.15:
-    resolution: {integrity: sha512-wTfvtwYJYAFL1fSs8yHIdf5GEE4NkbtbXtjLWjM3Cw8mmQKqsg8kTiqJ9NJQe5NX/5Qlo7Xd9r1yKMMkHllp5g==, tarball: esbuild-openbsd-64/download/esbuild-openbsd-64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-openbsd-64/0.13.15:
+    resolution: {integrity: sha512-wTfvtwYJYAFL1fSs8yHIdf5GEE4NkbtbXtjLWjM3Cw8mmQKqsg8kTiqJ9NJQe5NX/5Qlo7Xd9r1yKMMkHllp5g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-openbsd-64/download/esbuild-openbsd-64-0.13.15.tgz}
+    name: esbuild-openbsd-64
+    version: 0.13.15
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-sunos-64/0.13.15:
-    resolution: {integrity: sha512-lbivT9Bx3t1iWWrSnGyBP9ODriEvWDRiweAs69vI+miJoeKwHWOComSRukttbuzjZ8r1q0mQJ8Z7yUsDJ3hKdw==, tarball: esbuild-sunos-64/download/esbuild-sunos-64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-sunos-64/0.13.15:
+    resolution: {integrity: sha512-lbivT9Bx3t1iWWrSnGyBP9ODriEvWDRiweAs69vI+miJoeKwHWOComSRukttbuzjZ8r1q0mQJ8Z7yUsDJ3hKdw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-sunos-64/download/esbuild-sunos-64-0.13.15.tgz}
+    name: esbuild-sunos-64
+    version: 0.13.15
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-windows-32/0.13.15:
-    resolution: {integrity: sha512-fDMEf2g3SsJ599MBr50cY5ve5lP1wyVwTe6aLJsM01KtxyKkB4UT+fc5MXQFn3RLrAIAZOG+tHC+yXObpSn7Nw==, tarball: esbuild-windows-32/download/esbuild-windows-32-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-windows-32/0.13.15:
+    resolution: {integrity: sha512-fDMEf2g3SsJ599MBr50cY5ve5lP1wyVwTe6aLJsM01KtxyKkB4UT+fc5MXQFn3RLrAIAZOG+tHC+yXObpSn7Nw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-windows-32/download/esbuild-windows-32-0.13.15.tgz}
+    name: esbuild-windows-32
+    version: 0.13.15
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-windows-64/0.13.15:
-    resolution: {integrity: sha512-9aMsPRGDWCd3bGjUIKG/ZOJPKsiztlxl/Q3C1XDswO6eNX/Jtwu4M+jb6YDH9hRSUflQWX0XKAfWzgy5Wk54JQ==, tarball: esbuild-windows-64/download/esbuild-windows-64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-windows-64/0.13.15:
+    resolution: {integrity: sha512-9aMsPRGDWCd3bGjUIKG/ZOJPKsiztlxl/Q3C1XDswO6eNX/Jtwu4M+jb6YDH9hRSUflQWX0XKAfWzgy5Wk54JQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-windows-64/download/esbuild-windows-64-0.13.15.tgz}
+    name: esbuild-windows-64
+    version: 0.13.15
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild-windows-arm64/0.13.15:
-    resolution: {integrity: sha512-zzvyCVVpbwQQATaf3IG8mu1IwGEiDxKkYUdA4FpoCHi1KtPa13jeScYDjlW0Qh+ebWzpKfR2ZwvqAQkSWNcKjA==, tarball: esbuild-windows-arm64/download/esbuild-windows-arm64-0.13.15.tgz}
+  registry.npmmirror.com/esbuild-windows-arm64/0.13.15:
+    resolution: {integrity: sha512-zzvyCVVpbwQQATaf3IG8mu1IwGEiDxKkYUdA4FpoCHi1KtPa13jeScYDjlW0Qh+ebWzpKfR2ZwvqAQkSWNcKjA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-windows-arm64/download/esbuild-windows-arm64-0.13.15.tgz}
+    name: esbuild-windows-arm64
+    version: 0.13.15
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /esbuild/0.13.15:
-    resolution: {integrity: sha512-raCxt02HBKv8RJxE8vkTSCXGIyKHdEdGfUmiYb8wnabnaEmHzyW7DCHb5tEN0xU8ryqg5xw54mcwnYkC4x3AIw==, tarball: esbuild/download/esbuild-0.13.15.tgz}
+  registry.npmmirror.com/esbuild/0.13.15:
+    resolution: {integrity: sha512-raCxt02HBKv8RJxE8vkTSCXGIyKHdEdGfUmiYb8wnabnaEmHzyW7DCHb5tEN0xU8ryqg5xw54mcwnYkC4x3AIw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild/download/esbuild-0.13.15.tgz}
+    name: esbuild
+    version: 0.13.15
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      esbuild-android-arm64: 0.13.15
-      esbuild-darwin-64: 0.13.15
-      esbuild-darwin-arm64: 0.13.15
-      esbuild-freebsd-64: 0.13.15
-      esbuild-freebsd-arm64: 0.13.15
-      esbuild-linux-32: 0.13.15
-      esbuild-linux-64: 0.13.15
-      esbuild-linux-arm: 0.13.15
-      esbuild-linux-arm64: 0.13.15
-      esbuild-linux-mips64le: 0.13.15
-      esbuild-linux-ppc64le: 0.13.15
-      esbuild-netbsd-64: 0.13.15
-      esbuild-openbsd-64: 0.13.15
-      esbuild-sunos-64: 0.13.15
-      esbuild-windows-32: 0.13.15
-      esbuild-windows-64: 0.13.15
-      esbuild-windows-arm64: 0.13.15
+      esbuild-android-arm64: registry.npmmirror.com/esbuild-android-arm64/0.13.15
+      esbuild-darwin-64: registry.npmmirror.com/esbuild-darwin-64/0.13.15
+      esbuild-darwin-arm64: registry.npmmirror.com/esbuild-darwin-arm64/0.13.15
+      esbuild-freebsd-64: registry.npmmirror.com/esbuild-freebsd-64/0.13.15
+      esbuild-freebsd-arm64: registry.npmmirror.com/esbuild-freebsd-arm64/0.13.15
+      esbuild-linux-32: registry.npmmirror.com/esbuild-linux-32/0.13.15
+      esbuild-linux-64: registry.npmmirror.com/esbuild-linux-64/0.13.15
+      esbuild-linux-arm: registry.npmmirror.com/esbuild-linux-arm/0.13.15
+      esbuild-linux-arm64: registry.npmmirror.com/esbuild-linux-arm64/0.13.15
+      esbuild-linux-mips64le: registry.npmmirror.com/esbuild-linux-mips64le/0.13.15
+      esbuild-linux-ppc64le: registry.npmmirror.com/esbuild-linux-ppc64le/0.13.15
+      esbuild-netbsd-64: registry.npmmirror.com/esbuild-netbsd-64/0.13.15
+      esbuild-openbsd-64: registry.npmmirror.com/esbuild-openbsd-64/0.13.15
+      esbuild-sunos-64: registry.npmmirror.com/esbuild-sunos-64/0.13.15
+      esbuild-windows-32: registry.npmmirror.com/esbuild-windows-32/0.13.15
+      esbuild-windows-64: registry.npmmirror.com/esbuild-windows-64/0.13.15
+      esbuild-windows-arm64: registry.npmmirror.com/esbuild-windows-arm64/0.13.15
     dev: true
 
-  /escape-html/1.0.3:
-    resolution: {integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=, tarball: escape-html/download/escape-html-1.0.3.tgz}
-    dev: true
-
-  /estree-walker/2.0.2:
-    resolution: {integrity: sha1-UvAQF4wqTBF6d1fP6UKtt9LaTKw=, tarball: estree-walker/download/estree-walker-2.0.2.tgz}
-    dev: true
-
-  /fsevents/2.3.2:
-    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=, tarball: fsevents/download/fsevents-2.3.2.tgz}
+  registry.npmmirror.com/fsevents/2.3.2:
+    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fsevents/download/fsevents-2.3.2.tgz}
+    name: fsevents
+    version: 2.3.2
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /function-bind/1.1.1:
-    resolution: {integrity: sha1-pWiZ0+o8m6uHS7l3O3xe3pL0iV0=, tarball: function-bind/download/function-bind-1.1.1.tgz}
-    dev: true
-
-  /has-flag/4.0.0:
-    resolution: {integrity: sha1-lEdx/ZyByBJlxNaUGGDaBrtZR5s=, tarball: has-flag/download/has-flag-4.0.0.tgz}
-    engines: {node: '>=8'}
-    dev: true
-
-  /has/1.0.3:
-    resolution: {integrity: sha1-ci18v8H2qoJB8W3YFOAR4fQeh5Y=, tarball: has/download/has-1.0.3.tgz}
-    engines: {node: '>= 0.4.0'}
+  registry.npmmirror.com/htmlparser2/7.2.0:
+    resolution: {integrity: sha512-H7MImA4MS6cw7nbyURtLPO1Tms7C5H602LRETv95z1MxO/7CP7rDVROehUYeYBUYEON94NXXDEPmZuq+hX4sog==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/htmlparser2/download/htmlparser2-7.2.0.tgz}
+    name: htmlparser2
+    version: 7.2.0
     dependencies:
-      function-bind: 1.1.1
+      domelementtype: registry.nlark.com/domelementtype/2.2.0
+      domhandler: registry.npmmirror.com/domhandler/4.3.0
+      domutils: registry.nlark.com/domutils/2.8.0
+      entities: registry.nlark.com/entities/3.0.1
     dev: true
 
-  /htmlparser2/7.2.0:
-    resolution: {integrity: sha512-H7MImA4MS6cw7nbyURtLPO1Tms7C5H602LRETv95z1MxO/7CP7rDVROehUYeYBUYEON94NXXDEPmZuq+hX4sog==, tarball: htmlparser2/download/htmlparser2-7.2.0.tgz}
+  registry.npmmirror.com/is-core-module/2.8.0:
+    resolution: {integrity: sha1-AyEzbD0JJeSX/Zf12VyxFKXM1Ug=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/is-core-module/download/is-core-module-2.8.0.tgz}
+    name: is-core-module
+    version: 2.8.0
     dependencies:
-      domelementtype: 2.2.0
-      domhandler: 4.3.0
-      domutils: 2.8.0
-      entities: 3.0.1
+      has: registry.nlark.com/has/1.0.3
     dev: true
 
-  /is-core-module/2.8.0:
-    resolution: {integrity: sha1-AyEzbD0JJeSX/Zf12VyxFKXM1Ug=, tarball: is-core-module/download/is-core-module-2.8.0.tgz?cache=0&sync_timestamp=1634557199715&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fis-core-module%2Fdownload%2Fis-core-module-2.8.0.tgz}
-    dependencies:
-      has: 1.0.3
+  registry.npmmirror.com/is-json/2.0.1:
+    resolution: {integrity: sha1-a+Fm0USCihMdaGiRuYPfYsOUkf8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/is-json/download/is-json-2.0.1.tgz}
+    name: is-json
+    version: 2.0.1
     dev: true
 
-  /is-json/2.0.1:
-    resolution: {integrity: sha1-a+Fm0USCihMdaGiRuYPfYsOUkf8=, tarball: is-json/download/is-json-2.0.1.tgz}
-    dev: true
-
-  /magic-string/0.25.7:
-    resolution: {integrity: sha1-P0l9b9NMZpxnmNy4IfLvMfVEUFE=, tarball: magic-string/download/magic-string-0.25.7.tgz?cache=0&sync_timestamp=1632838550533&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmagic-string%2Fdownload%2Fmagic-string-0.25.7.tgz}
-    dependencies:
-      sourcemap-codec: 1.4.8
-    dev: true
-
-  /nanoid/3.1.30:
-    resolution: {integrity: sha1-Y/k8xUjSoRPcXfvGO/oJ4rm2Q2I=, tarball: nanoid/download/nanoid-3.1.30.tgz}
+  registry.npmmirror.com/nanoid/3.1.30:
+    resolution: {integrity: sha1-Y/k8xUjSoRPcXfvGO/oJ4rm2Q2I=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/nanoid/download/nanoid-3.1.30.tgz}
+    name: nanoid
+    version: 3.1.30
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: true
 
-  /path-parse/1.0.7:
-    resolution: {integrity: sha1-+8EUtgykKzDZ2vWFjkvWi77bZzU=, tarball: path-parse/download/path-parse-1.0.7.tgz}
+  registry.npmmirror.com/picocolors/1.0.0:
+    resolution: {integrity: sha1-y1vcdP8/UYkiNur3nWi8RFZKuBw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/picocolors/download/picocolors-1.0.0.tgz}
+    name: picocolors
+    version: 1.0.0
     dev: true
 
-  /picocolors/1.0.0:
-    resolution: {integrity: sha1-y1vcdP8/UYkiNur3nWi8RFZKuBw=, tarball: picocolors/download/picocolors-1.0.0.tgz}
-    dev: true
-
-  /picomatch/2.3.0:
-    resolution: {integrity: sha1-8fBh3o9qS/AiiS4tEoI0+5gwKXI=, tarball: picomatch/download/picomatch-2.3.0.tgz}
-    engines: {node: '>=8.6'}
-    dev: true
-
-  /postcss/8.4.4:
-    resolution: {integrity: sha512-joU6fBsN6EIer28Lj6GDFoC/5yOZzLCfn0zHAn/MYXI7aPt4m4hK5KC5ovEZXy+lnCjmYIbQWngvju2ddyEr8Q==, tarball: postcss/download/postcss-8.4.4.tgz}
+  registry.npmmirror.com/postcss/8.4.4:
+    resolution: {integrity: sha512-joU6fBsN6EIer28Lj6GDFoC/5yOZzLCfn0zHAn/MYXI7aPt4m4hK5KC5ovEZXy+lnCjmYIbQWngvju2ddyEr8Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/postcss/download/postcss-8.4.4.tgz}
+    name: postcss
+    version: 8.4.4
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.1.30
-      picocolors: 1.0.0
-      source-map-js: 1.0.1
+      nanoid: registry.npmmirror.com/nanoid/3.1.30
+      picocolors: registry.npmmirror.com/picocolors/1.0.0
+      source-map-js: registry.npmmirror.com/source-map-js/1.0.1
     dev: true
 
-  /posthtml-parser/0.10.1:
-    resolution: {integrity: sha1-Y8QZMakznMLDKroU8GKG2Y8Qer8=, tarball: posthtml-parser/download/posthtml-parser-0.10.1.tgz}
-    engines: {node: '>=12'}
-    dependencies:
-      htmlparser2: 7.2.0
+  registry.npmmirror.com/preact/10.6.2:
+    resolution: {integrity: sha512-ppDjurt75nSxyikpyali+uKwRl8CK9N6ntOPovGIEGQagjMLVzEgVqFEsUUyUrqyE9Ch90KE0jmFc9q2QcPLBA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/preact/download/preact-10.6.2.tgz}
+    name: preact
+    version: 10.6.2
     dev: true
 
-  /posthtml-render/3.0.0:
-    resolution: {integrity: sha1-l75EkxSW9JW08HuZ6QPMcK1qMgU=, tarball: posthtml-render/download/posthtml-render-3.0.0.tgz}
-    engines: {node: '>=12'}
-    dependencies:
-      is-json: 2.0.1
-    dev: true
-
-  /preact/10.6.2:
-    resolution: {integrity: sha512-ppDjurt75nSxyikpyali+uKwRl8CK9N6ntOPovGIEGQagjMLVzEgVqFEsUUyUrqyE9Ch90KE0jmFc9q2QcPLBA==, tarball: preact/download/preact-10.6.2.tgz}
-    dev: true
-
-  /prismjs/1.25.0:
-    resolution: {integrity: sha1-b4It8b2tllc0sxCzFaIzFc+Zl1Y=, tarball: prismjs/download/prismjs-1.25.0.tgz}
-    dev: true
-
-  /resolve/1.20.0:
-    resolution: {integrity: sha1-YpoBP7P3B1XW8LeTXMHCxTeLGXU=, tarball: resolve/download/resolve-1.20.0.tgz}
-    dependencies:
-      is-core-module: 2.8.0
-      path-parse: 1.0.7
-    dev: true
-
-  /rollup/2.60.2:
-    resolution: {integrity: sha512-1Bgjpq61sPjgoZzuiDSGvbI1tD91giZABgjCQBKM5aYLnzjq52GoDuWVwT/cm/MCxCMPU8gqQvkj8doQ5C8Oqw==, tarball: rollup/download/rollup-2.60.2.tgz}
+  registry.npmmirror.com/rollup/2.60.2:
+    resolution: {integrity: sha512-1Bgjpq61sPjgoZzuiDSGvbI1tD91giZABgjCQBKM5aYLnzjq52GoDuWVwT/cm/MCxCMPU8gqQvkj8doQ5C8Oqw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rollup/download/rollup-2.60.2.tgz}
+    name: rollup
+    version: 2.60.2
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
-  /source-map-js/1.0.1:
-    resolution: {integrity: sha512-4+TN2b3tqOCd/kaGRJ/sTYA0tR0mdXx26ipdolxcwtJVqEnqNYvlCAt1q3ypy4QMlYus+Zh34RNtYLoq2oQ4IA==, tarball: source-map-js/download/source-map-js-1.0.1.tgz}
+  registry.npmmirror.com/source-map-js/1.0.1:
+    resolution: {integrity: sha512-4+TN2b3tqOCd/kaGRJ/sTYA0tR0mdXx26ipdolxcwtJVqEnqNYvlCAt1q3ypy4QMlYus+Zh34RNtYLoq2oQ4IA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/source-map-js/download/source-map-js-1.0.1.tgz}
+    name: source-map-js
+    version: 1.0.1
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /source-map/0.6.1:
-    resolution: {integrity: sha1-dHIq8y6WFOnCh6jQu95IteLxomM=, tarball: source-map/download/source-map-0.6.1.tgz}
-    engines: {node: '>=0.10.0'}
-    dev: true
-
-  /sourcemap-codec/1.4.8:
-    resolution: {integrity: sha1-6oBL2UhXQC5pktBaOO8a41qatMQ=, tarball: sourcemap-codec/download/sourcemap-codec-1.4.8.tgz?cache=0&sync_timestamp=1632838551039&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsourcemap-codec%2Fdownload%2Fsourcemap-codec-1.4.8.tgz}
-    dev: true
-
-  /supports-color/7.2.0:
-    resolution: {integrity: sha1-G33NyzK4E4gBs+R4umpRyqiWSNo=, tarball: supports-color/download/supports-color-7.2.0.tgz}
+  registry.npmmirror.com/supports-color/7.2.0:
+    resolution: {integrity: sha1-G33NyzK4E4gBs+R4umpRyqiWSNo=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/supports-color/download/supports-color-7.2.0.tgz}
+    name: supports-color
+    version: 7.2.0
     engines: {node: '>=8'}
     dependencies:
-      has-flag: 4.0.0
+      has-flag: registry.nlark.com/has-flag/4.0.0
     dev: true
 
-  /vite/2.6.14:
-    resolution: {integrity: sha512-2HA9xGyi+EhY2MXo0+A2dRsqsAG3eFNEVIo12olkWhOmc8LfiM+eMdrXf+Ruje9gdXgvSqjLI9freec1RUM5EA==, tarball: vite/download/vite-2.6.14.tgz}
+  registry.npmmirror.com/vite/2.6.14:
+    resolution: {integrity: sha512-2HA9xGyi+EhY2MXo0+A2dRsqsAG3eFNEVIo12olkWhOmc8LfiM+eMdrXf+Ruje9gdXgvSqjLI9freec1RUM5EA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite/download/vite-2.6.14.tgz}
+    name: vite
+    version: 2.6.14
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
@@ -662,25 +844,27 @@ packages:
       stylus:
         optional: true
     dependencies:
-      esbuild: 0.13.15
-      postcss: 8.4.4
-      resolve: 1.20.0
-      rollup: 2.60.2
+      esbuild: registry.npmmirror.com/esbuild/0.13.15
+      postcss: registry.npmmirror.com/postcss/8.4.4
+      resolve: registry.nlark.com/resolve/1.20.0
+      rollup: registry.npmmirror.com/rollup/2.60.2
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
-  /vitepress/0.20.1:
-    resolution: {integrity: sha1-NNOZUKUGKk76ViG+OnjABfZW+u4=, tarball: vitepress/download/vitepress-0.20.1.tgz}
+  registry.npmmirror.com/vitepress/0.20.1:
+    resolution: {integrity: sha1-NNOZUKUGKk76ViG+OnjABfZW+u4=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vitepress/download/vitepress-0.20.1.tgz}
+    name: vitepress
+    version: 0.20.1
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
-      '@docsearch/css': 1.0.0-alpha.28
-      '@docsearch/js': 1.0.0-alpha.28
-      '@vitejs/plugin-vue': 1.10.1_vite@2.6.14
-      prismjs: 1.25.0
-      vite: 2.6.14
-      vue: 3.2.23
+      '@docsearch/css': registry.npmmirror.com/@docsearch/css/1.0.0-alpha.28
+      '@docsearch/js': registry.npmmirror.com/@docsearch/js/1.0.0-alpha.28
+      '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/1.10.1_vite@2.6.14
+      prismjs: registry.nlark.com/prismjs/1.25.0
+      vite: registry.npmmirror.com/vite/2.6.14
+      vue: registry.npmmirror.com/vue/3.2.23
     transitivePeerDependencies:
       - less
       - react
@@ -689,12 +873,14 @@ packages:
       - stylus
     dev: true
 
-  /vue/3.2.23:
-    resolution: {integrity: sha512-MGp9JZC37lzGhwSu6c1tQxrQbXbw7XKFqtYh7SFwNrNK899FPxGAHwSHMZijMChTSC3uZrD2BGO/3EHOgMJ0cw==, tarball: vue/download/vue-3.2.23.tgz}
+  registry.npmmirror.com/vue/3.2.23:
+    resolution: {integrity: sha512-MGp9JZC37lzGhwSu6c1tQxrQbXbw7XKFqtYh7SFwNrNK899FPxGAHwSHMZijMChTSC3uZrD2BGO/3EHOgMJ0cw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue/download/vue-3.2.23.tgz}
+    name: vue
+    version: 3.2.23
     dependencies:
-      '@vue/compiler-dom': 3.2.23
-      '@vue/compiler-sfc': 3.2.23
-      '@vue/runtime-dom': 3.2.23
-      '@vue/server-renderer': 3.2.23_vue@3.2.23
-      '@vue/shared': 3.2.23
+      '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom/3.2.23
+      '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc/3.2.23
+      '@vue/runtime-dom': registry.npmmirror.com/@vue/runtime-dom/3.2.23
+      '@vue/server-renderer': registry.npmmirror.com/@vue/server-renderer/3.2.23_vue@3.2.23
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.23
     dev: true
