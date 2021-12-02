@@ -1,5 +1,5 @@
 {
-  "name": "vitepress-plugin-code-block",
+  "name": "vitepress-plugin-demo-block",
   "version": "1.0.0",
   "description": "this is vitepress code block",
   "main": "index.js",
@@ -12,7 +12,15 @@
     "serve": "vitepress serve docs"
   },
   "devDependencies": {
+    "@rollup/pluginutils": "^4.1.1",
+    "@types/node": "^16.11.11",
+    "chalk": "4.x",
+    "escape-html": "^1.0.3",
+    "posthtml-parser": "^0.10.1",
+    "posthtml-render": "^3.0.0",
+    "prismjs": "^1.25.0",
     "vite": "^2.6.14",
-    "vitepress": "^0.20.1"
+    "vitepress": "^0.20.1",
+    "vue": "^3.2.23"
   }
 }
