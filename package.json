@@ -7,9 +7,9 @@
   "author": "aibayanyu",
   "license": "MIT",
   "scripts": {
-    "dev": "vitepress dev docs --host",
-    "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "dev": "vitepress dev example --host",
+    "build": "vitepress build example",
+    "serve": "vitepress serve example"
   },
   "devDependencies": {
     "@rollup/pluginutils": "^4.1.1",

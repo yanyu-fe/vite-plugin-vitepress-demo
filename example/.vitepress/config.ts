@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress"
+import "../../plugins/demoBlock/component/theme-dumi/styles"
 export default defineConfig({
     title:"test",
     themeConfig:{

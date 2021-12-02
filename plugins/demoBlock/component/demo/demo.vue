@@ -1,14 +1,35 @@
 <template>
-  <div>
-    <slot></slot>
-    <div v-if="highlightCode" class="code" v-html="highlightCode"></div>
+  <div class="demo-block">
+    <div class="demo-block__content">
+      <slot></slot>
+    </div>
+    <div class="demo-block__info">
+      <div class="demo-block__info--title">{{ title }}</div>
+      <div class="demo-block__info--description">
+        {{desc}}
+      </div>
+      <div class="demo-block__actions">
+        <CodeSandbox class="demo-block__action" />
+        <FileCopy class="demo-block__action" />
+        <Expand class="demo-block__action" v-if="!showCode" @click="changeShow" />
+        <UnExpand class="demo-block__action" v-if="showCode" @click="changeShow"/>
+      </div>
+    </div>
+    <template v-if="showCode">
+      <div v-if="highlightCode" class="language-vue" v-html="highlightCode"></div>
+    </template>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent,computed } from "vue"
+import { defineComponent,computed,ref } from "vue"
+import Expand from "./icons/expand.vue";
+import UnExpand from "./icons/UnExpand.vue";
+import CodeSandbox from "./icons/CodeSandbox.vue";
+import FileCopy from "./icons/FileCopy.vue";
 
 export default defineComponent({
+  components: {FileCopy, CodeSandbox, UnExpand, Expand },
   props:{
     highlight:{
       type:String,
@@ -17,17 +38,32 @@ export default defineComponent({
     copyCode:{
       type:String,
       default:""
+    },
+    desc:{
+      type:String,
+      default:""
+    },
+    title:{
+      type:String,
+      default:""
     }
   },
   setup(props){
-    const highlightCode = computed(()=>props.highlight ?decodeURIComponent(props.highlight):null);
+    const showCode = ref(false);
+    const highlightCode = computed(() => props.highlight ? decodeURIComponent(props.highlight):null);
+    const changeShow = () => {
+      showCode.value = !showCode.value
+    }
     return{
-      highlightCode
+      highlightCode,
+      showCode,
+      changeShow
     }
   }
 })
 </script>
 
-<style scoped>
-
+<style>
+@import "./demo.css";
+@import "./code.css";
 </style>
