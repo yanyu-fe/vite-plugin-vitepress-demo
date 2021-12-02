@@ -1,6 +1,6 @@
 <template>
   <div>
-    奥德赛
+    sad
   </div>
 </template>
 
