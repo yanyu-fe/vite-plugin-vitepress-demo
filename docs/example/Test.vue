@@ -1,7 +1,6 @@
 <template>
   <div>
-    你好啊s
-    撒的撒
+    奥德赛
   </div>
 </template>
 
