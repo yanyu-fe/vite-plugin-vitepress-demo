@@ -6,7 +6,7 @@
     <div class="demo-block__info">
       <div class="demo-block__info--title">{{ title }}</div>
       <div class="demo-block__info--description">
-        {{desc}}
+        {{ desc }}
       </div>
       <div class="demo-block__actions">
         <CodeSandbox class="demo-block__action" />
