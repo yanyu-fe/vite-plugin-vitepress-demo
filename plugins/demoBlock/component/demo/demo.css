@@ -56,9 +56,16 @@
     justify-content: center;
 }
 .demo-block__action{
+    cursor: pointer;
     width: 16px;
     height: 16px;
-    color: var(--border-color);
     margin: 0 8px;
     pointer-events: auto;
+    opacity: .6;
+    transform: scale(1);
+    transition: transform .2s;
+}
+.demo-block__action:hover{
+    transform: scale(1.2);
+    opacity: 1;
 }

@@ -1,7 +1,6 @@
 <template>
   <div>
-    s啊实打实寒假暑假
-    {{ data }}
+    {{data}}
     <button @click="onChangeData">测试</button>
   </div>
 </template>

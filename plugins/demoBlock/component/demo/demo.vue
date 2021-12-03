@@ -15,9 +15,9 @@
         <UnExpand class="demo-block__action" v-if="showCode" @click="changeShow"/>
       </div>
     </div>
-    <template v-if="showCode">
-      <div v-if="highlightCode" class="language-vue" v-html="highlightCode"></div>
-    </template>
+    <transition name="fade">
+      <div v-show="showCode" class="code-demo language-vue" v-html="highlightCode"></div>
+    </transition>
   </div>
 </template>
 
@@ -54,7 +54,12 @@ export default defineComponent({
     const changeShow = () => {
       showCode.value = !showCode.value
     }
+    const wrapperClass = computed(()=>{
+      return{
+      }
+    })
     return{
+      wrapperClass,
       highlightCode,
       showCode,
       changeShow
@@ -66,4 +71,20 @@ export default defineComponent({
 <style>
 @import "./demo.css";
 @import "./code.css";
+</style>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  height: auto;
+}
+.fade-enter-from,
+.fade-leave-to {
+  height: auto;
+}
+.code-demo{
+  overflow: auto;
+}
+
+
 </style>
