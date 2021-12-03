@@ -72,7 +72,7 @@ const chunkCode = (source:string) => {
     }
 }
 
-
+// 将代码转换为一个正常的代码块
 const srcCode = (id:string,src:string) => {
     const dir = dirname(id);
     const filePath = join(dir,src);
