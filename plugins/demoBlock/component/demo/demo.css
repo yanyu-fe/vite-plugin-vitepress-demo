@@ -38,10 +38,10 @@
     position: absolute;
     background: var(--white-color-1);
     color: var(--demo-font-color);
-    font-weight: 450;
+    font-weight: bolder;
     top: -14px;
-    padding: 2px 15px;
-    margin-left: 20px;
+    padding: 2px 10px;
+    margin-left: 30px;
 }
 
 

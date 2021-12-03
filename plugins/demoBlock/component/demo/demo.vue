@@ -9,7 +9,7 @@
         {{ desc }}
       </div>
       <div class="demo-block__actions">
-        <CodeSandbox class="demo-block__action" />
+        <CodeSandbox class="demo-block__action" v-if="showCodeSandBox" />
         <FileCopy class="demo-block__action" />
         <Expand class="demo-block__action" v-if="!showCode" @click="changeShow" />
         <UnExpand class="demo-block__action" v-if="showCode" @click="changeShow"/>
@@ -31,6 +31,10 @@ import FileCopy from "./icons/FileCopy.vue";
 export default defineComponent({
   components: {FileCopy, CodeSandbox, UnExpand, Expand },
   props:{
+    codeSandbox:{
+      type:String,
+      default:""
+    },
     highlight:{
       type:String,
       default:""
@@ -54,6 +58,7 @@ export default defineComponent({
     const changeShow = () => {
       showCode.value = !showCode.value
     }
+    const showCodeSandBox = computed(() => props.codeSandbox && props.codeSandbox.length > 0);
     const wrapperClass = computed(()=>{
       return{
       }
@@ -62,6 +67,7 @@ export default defineComponent({
       wrapperClass,
       highlightCode,
       showCode,
+      showCodeSandBox,
       changeShow
     }
   }
