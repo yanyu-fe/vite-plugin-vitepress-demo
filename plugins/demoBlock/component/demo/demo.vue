@@ -4,11 +4,9 @@
       <slot></slot>
     </div>
     <div class="demo-block__info">
-      <div class="demo-block__info--title">{{ title }}</div>
-      <div class="demo-block__info--description">
-        {{ desc }}
-      </div>
-      <div class="demo-block__actions">
+      <div class="demo-block__info--title"  v-html="showTitle"></div>
+      <div class="demo-block__info--description" v-html="showDesc"></div>
+      <div class="demo-block__actions" v-if="highlightCode.length > 0">
         <CodeSandbox class="demo-block__action" v-if="showCodeSandBox" />
         <FileCopy class="demo-block__action" />
         <Expand class="demo-block__action" v-if="!showCode" @click="changeShow" />
@@ -16,7 +14,7 @@
       </div>
     </div>
     <transition name="fade">
-      <div v-show="showCode" class="code-demo language-vue" v-html="highlightCode"></div>
+      <div v-show="showCode" class="code-demo" v-html="highlightCode"></div>
     </transition>
   </div>
 </template>
@@ -54,16 +52,21 @@ export default defineComponent({
   },
   setup(props){
     const showCode = ref(false);
-    const highlightCode = computed(() => props.highlight ? decodeURIComponent(props.highlight):null);
+    const highlightCode = computed(() => props.highlight ? decodeURIComponent(props.highlight):'');
     const changeShow = () => {
       showCode.value = !showCode.value
     }
+
+    const showTitle = computed(()=>props.title ? decodeURIComponent(props.title) : '');
+    const showDesc = computed(()=>props.desc ? decodeURIComponent(props.desc) : '');
     const showCodeSandBox = computed(() => props.codeSandbox && props.codeSandbox.length > 0);
     const wrapperClass = computed(()=>{
       return{
       }
     })
     return{
+      showTitle,
+      showDesc,
       wrapperClass,
       highlightCode,
       showCode,
@@ -76,7 +79,7 @@ export default defineComponent({
 
 <style>
 @import "./demo.css";
-@import "./code.css";
+@import "./code1.css";
 </style>
 
 <style scoped>
@@ -91,6 +94,11 @@ export default defineComponent({
 .code-demo{
   overflow: auto;
 }
-
+.demo-block div[class*='language-']{
+  background: none;
+}
+.demo-block div[class~='language-vue']:before{
+  content: "";
+}
 
 </style>

@@ -13,9 +13,11 @@
   },
   "devDependencies": {
     "@rollup/pluginutils": "^4.1.1",
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "^16.11.11",
     "chalk": "4.x",
     "escape-html": "^1.0.3",
+    "markdown-it": "^12.2.0",
     "posthtml-parser": "^0.10.1",
     "posthtml-render": "^3.0.0",
     "prismjs": "^1.25.0",

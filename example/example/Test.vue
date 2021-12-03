@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{data}}
+    {{data}} 啊是打算打算大所
     <button @click="onChangeData">测试</button>
   </div>
 </template>
