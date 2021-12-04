@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "ESNext",
+    "declaration": false,
+    "outDir": "../../../dist/component",
+    "types": ["vite/client"],
+    "moduleResolution": "node",
+    "lib": ["ESNext","DOM"]
+  },
+  "exclude": [
+    "node_modules",
+    "demo"
+  ],
+  "include": ["*.ts"]
+}

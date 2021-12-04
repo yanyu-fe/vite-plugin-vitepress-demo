@@ -3,9 +3,9 @@
     <div class="demo-block__content">
       <slot></slot>
     </div>
-    <div class="demo-block__info">
-      <div class="demo-block__info--title"  v-html="showTitle"></div>
-      <div class="demo-block__info--description" v-html="showDesc"></div>
+    <div class="demo-block__info" v-if="showInfo">
+      <div class="demo-block__info--title" v-if="showTitle && showTitle.length > 0"  v-html="showTitle"></div>
+      <div class="demo-block__info--description" v-if="showDesc && showDesc.length > 0" :class="{'demo-block__info--description__dashed':showDesc && showDesc.length > 0}" v-html="showDesc"></div>
       <div class="demo-block__actions" v-if="highlightCode.length > 0">
         <CodeSandbox class="demo-block__action" v-if="showCodeSandBox" />
         <FileCopy class="demo-block__action" />
@@ -14,7 +14,7 @@
       </div>
     </div>
     <transition name="fade">
-      <div v-show="showCode" class="code-demo" v-html="highlightCode"></div>
+      <div v-show="showCode" class="code-demo language-vue" v-html="highlightCode"></div>
     </transition>
   </div>
 </template>
@@ -27,7 +27,12 @@ import CodeSandbox from "./icons/CodeSandbox.vue";
 import FileCopy from "./icons/FileCopy.vue";
 
 export default defineComponent({
-  components: {FileCopy, CodeSandbox, UnExpand, Expand },
+  components: {
+    FileCopy,
+    CodeSandbox,
+    UnExpand,
+    Expand
+  },
   props:{
     codeSandbox:{
       type:String,
@@ -56,7 +61,11 @@ export default defineComponent({
     const changeShow = () => {
       showCode.value = !showCode.value
     }
-
+    const showInfo = computed(()=>
+        (highlightCode.value && highlightCode.value.length > 0)
+        || (showDesc.value && showDesc.value.length > 0)
+        || (showTitle.value && showTitle.value.length > 0)
+    )
     const showTitle = computed(()=>props.title ? decodeURIComponent(props.title) : '');
     const showDesc = computed(()=>props.desc ? decodeURIComponent(props.desc) : '');
     const showCodeSandBox = computed(() => props.codeSandbox && props.codeSandbox.length > 0);
@@ -71,7 +80,8 @@ export default defineComponent({
       highlightCode,
       showCode,
       showCodeSandBox,
-      changeShow
+      changeShow,
+      showInfo
     }
   }
 })
@@ -79,7 +89,7 @@ export default defineComponent({
 
 <style>
 @import "./demo.css";
-@import "./code1.css";
+@import "./code.css";
 </style>
 
 <style scoped>

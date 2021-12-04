@@ -47,6 +47,8 @@
 
 .demo-block__info--description{
     padding: 15px;
+}
+.demo-block__info--description__dashed{
     border-bottom: 1px var(--border-color) dashed;
 }
 .demo-block__actions{

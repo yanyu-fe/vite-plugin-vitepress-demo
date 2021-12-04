@@ -6,6 +6,8 @@ import { hotUpdate } from "./hotUpdate";
 export interface CodeBlockOptions{
     include?:FilterPattern
     exclude?:FilterPattern
+    wrapper?:String
+    transform?:(code:string,id:string) => string
 }
 
 export const vitepressPluginDemoBlock = (options:CodeBlockOptions = {}):Plugin => {
@@ -17,6 +19,9 @@ export const vitepressPluginDemoBlock = (options:CodeBlockOptions = {}):Plugin =
             const exclude = options.exclude;
             const filter = createFilter(include,exclude);
             if (filter(id)){
+                if (options.transform){
+                    return options.transform(code,id);
+                }
                 return transformCode(id,code);
             }
             return code;

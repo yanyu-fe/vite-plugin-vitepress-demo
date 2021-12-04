@@ -6,11 +6,12 @@ import {highlight as highlightCode} from "./highlight"
 import {MarkdownFormat, MarkdownFormatInline} from "./markdownFormat";
 // 定义全局的参数
 let scripts = [];
-
+let myWrapper = 'demo';
 // 处理代码结构
-export const transformCode = (id:string,code:string) => {
+export const transformCode = (id:string,code:string,wrapper:string = 'demo') => {
     scripts = [];
-    const pat = /<demo.*?>.*?<.*?\/demo>/sg
+    myWrapper = wrapper;
+    const pat = new RegExp(`<${wrapper}.*?>.*?<.*?\/${wrapper}>`,'sg')
     const data = code.match(pat);
     if (data && data.length > 0){
         // 这里需要处理一下数据
@@ -31,7 +32,7 @@ const chunkAttrs = (id:string,code:string) => {
     const parserCode = parser(code);
     if (parserCode.length < 1) return code;
     parserCode.forEach((code:NodeTag) => {
-        if (code.tag === 'demo'){
+        if (code.tag === myWrapper){
             const attrs = code.attrs;
             if (attrs && attrs.src){
                 const componentName = `demoComponent${scripts.length + 1}`;
