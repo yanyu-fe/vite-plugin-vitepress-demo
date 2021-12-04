@@ -1,5 +1,5 @@
 import { defineConfig } from "vite"
-import { vitepressPluginDemoBlock } from "../dist/index.esm";
+import { vitepressPluginDemoBlock } from "../plugins/demoBlock";
 
 export default defineConfig({
     server:{

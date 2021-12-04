@@ -20,7 +20,7 @@
     "serve:docs": "vitepress serve example",
     "build": "run-s build:lib build:lib-types build:demo",
     "build:lib": "rollup -c scripts/rollup.config.ts",
-    "build:demo": "tsc -p plugins/demoBlock/component && esno scripts/copyFile.ts",
+    "build:demo": "tsc -p plugins/demoBlock/component/demo && esno scripts/copyFile.ts",
     "build:lib-types": "tsc -p plugins/demoBlock --declaration --emitDeclarationOnly --outDir dist/types"
   },
   "dependencies": {
