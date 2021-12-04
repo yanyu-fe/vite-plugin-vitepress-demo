@@ -1,6 +1,6 @@
 {
   "name": "vitepress-plugin-demo-block",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "this is vitepress demo code block",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -30,8 +30,7 @@
     "markdown-it": "^12.2.0",
     "posthtml-parser": "^0.10.1",
     "posthtml-render": "^3.0.0",
-    "prismjs": "^1.25.0",
-    "vue": "^3.2.23"
+    "prismjs": "^1.25.0"
   },
   "devDependencies": {
     "@babel/types": "^7.16.0",
@@ -53,6 +52,7 @@
     "tslib": "^2.3.1",
     "typescript": "^4.5.2",
     "vite": "^2.6.14",
-    "vitepress": "^0.20.1"
+    "vitepress": "^0.20.1",
+    "vue": "^3.2.23"
   }
 }
