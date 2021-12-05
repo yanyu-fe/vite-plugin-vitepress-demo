@@ -4,7 +4,7 @@
     sdasdasa
 </demo>
 
-<demo src="./example/Test.vue" title="测试十大的撒大所" desc="哼哼测`vue`试一下行不行">
+<demo codeSandbox="https://codesandbox.io/" src="./example/Test.vue" title="测试十大的撒大所" desc="哼哼测`vue`试一下行不行">
 <span>测试一下1</span>
 <desc>
 测试一下多行提示信息

@@ -1,5 +1,5 @@
 import { defineConfig } from "vite"
-import { vitepressPluginDemoBlock } from "../plugins/demoBlock";
+import { vitePluginVitepressDemo } from "../plugins/demoBlock";
 
 export default defineConfig({
     server:{
@@ -9,6 +9,6 @@ export default defineConfig({
         }
     },
     plugins:[
-        vitepressPluginDemoBlock()
+        vitePluginVitepressDemo()
     ]
 })
