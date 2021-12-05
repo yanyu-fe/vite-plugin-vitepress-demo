@@ -1,6 +1,6 @@
 import defaultTheme from "vitepress/dist/client/theme-default"
 import { EnhanceAppContext,Theme } from "vitepress";
-import CodeBlock from "../../../plugins/demoBlock/component/demo"
+import CodeBlock from "../../../dist/demo"
 
 const themeConfig: Theme = {
     ...defaultTheme,

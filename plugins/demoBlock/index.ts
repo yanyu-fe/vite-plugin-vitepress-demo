@@ -14,6 +14,11 @@ export const vitepressPluginDemoBlock = (options:CodeBlockOptions = {}):Plugin =
     return {
         name:"vitepress-plugin-demo-block",
         enforce:"pre",
+        config:() => ({
+            optimizeDeps:{
+                exclude:['vitepress-plugin-demo-block']
+            }
+        }),
         transform(code: string, id: string) {
             const include = options.include || /\.md$/;
             const exclude = options.exclude;

@@ -2,8 +2,8 @@ import {parser, NodeTag, Content,Node} from "posthtml-parser"
 import { render } from "posthtml-render"
 import { dirname,join } from "path"
 import { readFileSync,existsSync } from "fs"
-import {highlight as highlightCode} from "./highlight"
-import {MarkdownFormat, MarkdownFormatInline} from "./markdownFormat";
+import { highlight as highlightCode } from "./highlight"
+import { MarkdownFormat, MarkdownFormatInline } from "./markdownFormat";
 // 定义全局的参数
 let scripts = [];
 let myWrapper = 'demo';

@@ -1,9 +1,9 @@
 import DemoBlock from "./demo.vue"
-
-export { DemoBlock }
+import { App,Plugin } from "vue"
+export { DemoBlock };
 
 export default {
-    install(app){
-        app.component('demo',DemoBlock)
+    install(app:App){
+        app.component('demo',DemoBlock);
     }
-}
+} as Plugin;

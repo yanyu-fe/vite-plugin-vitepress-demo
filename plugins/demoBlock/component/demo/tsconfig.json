@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "ESNext",
     "target": "ESNext",
-    "declaration": false,
+    "declaration": true,
     "outDir": "../../../../dist/demo",
     "types": ["vite/client"],
     "moduleResolution": "node",
