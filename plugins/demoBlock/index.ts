@@ -10,13 +10,13 @@ export interface CodeBlockOptions{
     transform?:(code:string,id:string) => string
 }
 
-export const vitepressPluginDemoBlock = (options:CodeBlockOptions = {}):Plugin => {
+export const vitePluginVitepressDemo = (options:CodeBlockOptions = {}):Plugin => {
     return {
-        name:"vitepress-plugin-demo-block",
+        name:"vite-plugin-vitepress-demo",
         enforce:"pre",
         config:() => ({
             optimizeDeps:{
-                exclude:['vitepress-plugin-demo-block']
+                exclude:['vite-plugin-vitepress-demo']
             }
         }),
         transform(code: string, id: string) {
