@@ -7,8 +7,11 @@
       <div class="demo-block__info--title" v-if="showTitle && showTitle.length > 0"  v-html="showTitle"></div>
       <div class="demo-block__info--description" v-if="showDesc && showDesc.length > 0" :class="{'demo-block__info--description__dashed':showDesc && showDesc.length > 0}" v-html="showDesc"></div>
       <div class="demo-block__actions" v-if="highlightCode.length > 0">
-        <CodeSandbox class="demo-block__action" v-if="showCodeSandBox" />
-        <FileCopy class="demo-block__action" />
+        <CodeSandbox class="demo-block__action" v-if="showCodeSandBox" @click="enterCodeSandBox" />
+        <template v-if="isSupported">
+          <FileCopy class="demo-block__action" v-if="!isCopied" @click="copyCodeData" />
+          <FileSuccess class="demo-block__action" color="#13c2c2" v-else />
+        </template>
         <Expand class="demo-block__action" v-if="!showCode" @click="changeShow" />
         <UnExpand class="demo-block__action" v-if="showCode" @click="changeShow"/>
       </div>
@@ -20,14 +23,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent,computed,ref } from "vue"
+import { defineComponent,computed,ref,onMounted } from "vue"
 import Expand from "./icons/expand.vue";
 import UnExpand from "./icons/UnExpand.vue";
 import CodeSandbox from "./icons/CodeSandbox.vue";
 import FileCopy from "./icons/FileCopy.vue";
+import FileSuccess from "./icons/FileSuccess.vue";
 
 export default defineComponent({
   components: {
+    FileSuccess,
     FileCopy,
     CodeSandbox,
     UnExpand,
@@ -69,19 +74,44 @@ export default defineComponent({
     const showTitle = computed(()=>props.title ? decodeURIComponent(props.title) : '');
     const showDesc = computed(()=>props.desc ? decodeURIComponent(props.desc) : '');
     const showCodeSandBox = computed(() => props.codeSandbox && props.codeSandbox.length > 0);
-    const wrapperClass = computed(()=>{
-      return{
+    const enterCodeSandBox = () => {
+      if (window && 'open' in window){
+        window.open(props.codeSandbox);
+      }
+    }
+    const isCopied = ref(false);
+    onMounted(()=>{
+      if (navigator && 'clipboard' in navigator){
+        isSupported.value = true;
       }
     })
+    const isSupported = ref(false);
+    // 判断当前环境支不支持赋值
+    const copyCodeData = async () => {
+      const formatCopyData = props.copyCode ? decodeURIComponent(props.copyCode) : null;
+      // 复制代码
+      if (isSupported.value && formatCopyData) {
+        await navigator.clipboard.writeText(formatCopyData)
+        isCopied.value = true
+        const timer = setTimeout(()=>{
+          isCopied.value = false;
+          clearTimeout(timer);
+        },1500)
+      }
+    }
+
     return{
+      isSupported,
+      copyCodeData,
+      enterCodeSandBox,
       showTitle,
       showDesc,
-      wrapperClass,
       highlightCode,
       showCode,
       showCodeSandBox,
       changeShow,
-      showInfo
+      showInfo,
+      isCopied
     }
   }
 })
