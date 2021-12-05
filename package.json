@@ -12,7 +12,10 @@
     "registry": "https://registry.npmjs.org/"
   },
   "files": [
-    "dist"
+    "dist",
+    "dist/demo/demo.vue",
+    "dist/demo/index.js",
+    "dist/demo/index.d.ts"
   ],
   "scripts": {
     "vite:build": "vite build",
