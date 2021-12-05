@@ -68,6 +68,6 @@ export default {
 
 增加`codeSandbox`
 
-<demo codeSandbox="https://codesandbox.io/" src="./example/Test.vue" title="测试十大的撒大所" desc="哼哼测`vue`试一下行不行"></demo>
+<demo codeSandbox="https://codesandbox.io/" src="./example/Test.vue" title="测试" desc="描述信息`codeSandbox`"></demo>
 ```
 
