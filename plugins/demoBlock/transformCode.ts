@@ -37,7 +37,7 @@ const chunkAttrs = (id:string,code:string) => {
             const attrs = code.attrs;
             // 判断当前是不是vue文件，如果不是vue文件，就不走当前的处理方式
             if (attrs && attrs.src){
-                if ((attrs.src as string).endsWith('.vue') && typeof attrs.raw === 'undefined'){
+                if ((attrs.src as string).endsWith('.vue') && !("raw" in attrs)){
                     // 处理vue文件
                     const componentName = `demoComponent${scripts.length + 1}`;
                     const importStr = `import ${componentName} from "${attrs.src}"`;

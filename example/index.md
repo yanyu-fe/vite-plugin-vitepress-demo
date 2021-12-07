@@ -14,7 +14,7 @@ console.log("sdadasd")
 </desc>
 </demo>
 
-<demo src="./example/Test.vue" raw title="测试" desc="大萨达啥时间sad傻大姐阿斯加德和数据啊打撒环境"></demo>
+<demo src="./example/Test.vue" raw></demo>
 
 <demo src="./example/Test.ts"></demo>
 
