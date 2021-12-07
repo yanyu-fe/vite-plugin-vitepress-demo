@@ -1,6 +1,6 @@
 import {parser, NodeTag, Content,Node} from "posthtml-parser"
 import { render } from "posthtml-render"
-import { dirname,join } from "path"
+import { dirname,join,extname } from "path"
 import { readFileSync,existsSync } from "fs"
 import { highlight as highlightCode } from "./highlight"
 import { MarkdownFormat, MarkdownFormatInline } from "./markdownFormat";
@@ -31,57 +31,69 @@ const chunkAttrs = (id:string,code:string) => {
     // 开始获取
     const parserCode = parser(code);
     if (parserCode.length < 1) return code;
+    let myCodeSource;
     parserCode.forEach((code:NodeTag) => {
         if (code.tag === myWrapper){
             const attrs = code.attrs;
+            // 判断当前是不是vue文件，如果不是vue文件，就不走当前的处理方式
             if (attrs && attrs.src){
-                const componentName = `demoComponent${scripts.length + 1}`;
-                const importStr = `import ${componentName} from "${attrs.src}"`;
-                scripts.push(importStr);
-                const sourceCode = srcCode(id,attrs.src as string);
-                const { highlight,copyCode } = chunkCode(sourceCode);
-                // 处理src中的数据
-                delete attrs.src;
-                attrs.highlight = highlight;
-                attrs.copyCode = copyCode;
-                if (attrs.desc && typeof attrs.desc === 'string'){
-                    // 存在就处理一下
-                    attrs.desc = MarkdownFormatInline(attrs.desc);
-                }
-                if (attrs.title && typeof attrs.title === 'string'){
-                    attrs.title = MarkdownFormatInline(attrs.title);
-                }
-                const descRes = chunkDesc(code.content);
-                if (descRes){
-                    // 判断是否存在content
-                    if (descRes.content){
-                        code.content = descRes.content;
-                    }else {
-                        code.content = undefined;
+                if ((attrs.src as string).endsWith('.vue') && !("raw" in attrs)){
+                    // 处理vue文件
+                    const componentName = `demoComponent${scripts.length + 1}`;
+                    const importStr = `import ${componentName} from "${attrs.src}"`;
+                    scripts.push(importStr);
+                    const sourceCode = srcCode(id,attrs.src as string);
+                    if (!sourceCode) return '';
+                    const { highlight,copyCode } = chunkCode(sourceCode);
+                    // 处理src中的数据
+                    delete attrs.src;
+                    attrs.highlight = highlight;
+                    attrs.copyCode = copyCode;
+                    if (attrs.desc && typeof attrs.desc === 'string'){
+                        // 存在就处理一下
+                        attrs.desc = MarkdownFormatInline(attrs.desc);
                     }
-                    attrs.desc = descRes.source;
-                }
-                // 处理content中的数据
-                const tag:NodeTag = {
-                    tag:componentName
-                }
-                if (code.content && code.content instanceof Array){
-                    code.content.push(tag);
-                }else if (typeof code.content === 'string' || typeof code.content === 'number'){
-                    const nextData = code.content;
-                    code.content = [];
-                    code.content.push(nextData);
-                    code.content.push(tag);
+                    if (attrs.title && typeof attrs.title === 'string'){
+                        attrs.title = MarkdownFormatInline(attrs.title);
+                    }
+                    const descRes = chunkDesc(code.content);
+                    if (descRes){
+                        // 判断是否存在content
+                        if (descRes.content){
+                            code.content = descRes.content;
+                        }else {
+                            code.content = undefined;
+                        }
+                        attrs.desc = descRes.source;
+                    }
+                    // 处理content中的数据
+                    const tag:NodeTag = {
+                        tag:componentName
+                    }
+                    if (code.content && code.content instanceof Array){
+                        code.content.push(tag);
+                    }else if (typeof code.content === 'string' || typeof code.content === 'number'){
+                        const nextData = code.content;
+                        code.content = [];
+                        code.content.push(nextData);
+                        code.content.push(tag);
+                    }else {
+                        code.content = [];
+                        code.content.push(tag);
+                    }
                 }else {
-                    code.content = [];
-                    code.content.push(tag);
+                    const source = srcCode(id,attrs.src as string);
+                    if (source){
+                        const ext = attrs.language ? '.'+attrs.language : extname(attrs.src as string);
+                        myCodeSource = "```"+ext.slice(1) + "\n" + source + '\n```\n';
+                    }
                 }
             }
-            // 查看标签中是否存在desc标签
-            // console.log(code.content);
-
         }
     })
+    if (myCodeSource){
+        return myCodeSource;
+    }
     return render(parserCode);
 }
 
@@ -169,7 +181,6 @@ const srcCode = (id:string,src:string) => {
     }else {
         console.warn("not exists:" + src);
     }
-
 }
 
 // 处理已经拿到的数据

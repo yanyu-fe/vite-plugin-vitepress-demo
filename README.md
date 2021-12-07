@@ -2,6 +2,21 @@
 
 基于`vitepress`实现的自定义代码块的功能
 
+```js
+<demo codeSandbox="https://codesandbox.io/" src="./example/Test.vue" title="测试代码块">
+    <span>测试一下</span>
+    <desc>
+    描述信息
+    ```js
+        console.log("js block")
+    ```
+    </desc>
+</demo>
+```
+
+
+![demo](./img.png)
+
 ## 安装
 
 ```shell
@@ -64,6 +79,13 @@ export default {
 <!--增加`codeSandbox`-->
 
 <demo codeSandbox="https://codesandbox.io/" src="./example/Test.vue" title="测试" desc="描述信息`codeSandbox`"></demo>
+
+<!--文件代码块-->
+<demo src="./example/Test.ts"></demo>
+<!--携带语言代码块-->
+<demo src="./example/Test.ts" language="TypeScript"></demo>
+<!--vue问价生成代码块-->
+<demo src="./example/Test.vue" raw></demo>
 ```
 
 ## 自定义代码块

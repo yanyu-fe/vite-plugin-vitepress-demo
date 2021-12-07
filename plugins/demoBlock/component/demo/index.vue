@@ -136,6 +136,7 @@ export default defineComponent({
 }
 .demo-block div[class*='language-']{
   background: none;
+  margin: 0;
 }
 .demo-block div[class~='language-vue']:before{
   content: "";
