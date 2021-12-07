@@ -4,12 +4,12 @@
     sdasdasa
 </demo>
 
-<demo codeSandbox="https://codesandbox.io/" src="./example/Test.vue" title="测试十大的撒大所" desc="哼哼测`vue`试一下行不行">
-<span>测试一下1</span>
+<demo codeSandbox="https://codesandbox.io/" src="./example/Test.vue" title="测试代码块" desc="测试代码块`vue`试一下行不行">
+<span>测试一下</span>
 <desc>
-测试一下多行提示信息
+描述信息
 ```js
-console.log("sdadasd")
+console.log("js block")
 ```
 </desc>
 </demo>
