@@ -1,43 +1,26 @@
-:root{
-    --white-color-1:#fff;
-    --white-color-2:#fafafa;
-    --white-color-3:#f5f5f5;
-    --white-color-4:#f0f0f0;
-    --white-color-5:#d9d9d9;
-    --white-color-6:#bfbfbf;
-    --white-color-7:#8c8c8c;
-    --white-color-8:#595959;
-    --white-color-9:#434343;
-    --white-color-10:#262626;
-    --white-color-11:#1f1f1f;
-    --white-color-12:#141414;
-    --white-color-13:#000;
-    --border-color: #f0f0f0;
-    --demo-font-color:var(--white-color-13)
-}
 .demo-block{
     display: flex;
     box-sizing: border-box;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--c-border);
     flex-direction: column;
     margin: 1rem 0;
 }
 
 .demo-block__content{
-  padding: 1rem;
+    padding: 1rem;
 }
 
 .demo-block__info{
     position: relative;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--c-border);
     display: flex;
     flex-direction: column;
     font-size: 14px;
 }
 .demo-block__info--title{
     position: absolute;
-    background: var(--white-color-1);
-    color: var(--demo-font-color);
+    background: var(--c-bg);
+    color: var(--c-text);
     font-weight: bolder;
     top: -14px;
     padding: 2px 10px;
@@ -49,7 +32,7 @@
     padding: 15px;
 }
 .demo-block__info--description__dashed{
-    border-bottom: 1px var(--border-color) dashed;
+    border-bottom: 1px var(--c-border) dashed;
 }
 .demo-block__actions{
     padding: 10px;
