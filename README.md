@@ -64,6 +64,11 @@ export default {
 <!--增加`codeSandbox`-->
 
 <demo codeSandbox="https://codesandbox.io/" src="./example/Test.vue" title="测试" desc="描述信息`codeSandbox`"></demo>
+
+<!--文件代码块-->
+<demo src="./example/Test.ts"></demo>
+<!--携带语言代码块-->
+<demo src="./example/Test.ts" language="TypeScript"></demo>
 ```
 
 ## 自定义代码块
