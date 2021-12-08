@@ -10,7 +10,7 @@
         <CodeSandbox class="demo-block__action" v-if="showCodeSandBox" @click="enterCodeSandBox" />
         <template v-if="isSupported">
           <FileCopy class="demo-block__action" v-if="!isCopied" @click="copyCodeData" />
-          <FileSuccess class="demo-block__action" color="#13c2c2" v-else />
+          <FileSuccess class="demo-block__action" style="color: var(--c-brand)" v-else />
         </template>
         <Expand class="demo-block__action" v-if="!showCode" @click="changeShow" />
         <UnExpand class="demo-block__action" v-if="showCode" @click="changeShow"/>
@@ -120,6 +120,9 @@ export default defineComponent({
 <style>
 @import "./demo.css";
 @import "./code.css";
+.code-demo code{
+  color: var(--c-text-light-1);
+}
 </style>
 
 <style scoped>
