@@ -1,3 +1,9 @@
+:root{
+    --c-code-text: var(--c-text-light-1);
+}
+html.dark{
+    --c-code-text: var(--c-text-light);
+}
 .demo-block{
     display: flex;
     box-sizing: border-box;

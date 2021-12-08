@@ -121,7 +121,7 @@ export default defineComponent({
 @import "./demo.css";
 @import "./code.css";
 .code-demo code{
-  color: var(--c-text-light-1);
+  color: var(--c-code-text);
 }
 </style>
 
