@@ -17,7 +17,7 @@
       </div>
     </div>
     <transition name="fade">
-      <div v-show="showCode" class="code-demo language-vue" v-html="highlightCode"></div>
+      <div v-if="showCode" class="code-demo language-vue" v-html="highlightCode"></div>
     </transition>
   </div>
 </template>
@@ -134,11 +134,15 @@ export default defineComponent({
 .fade-leave-to {
   height: auto;
 }
+.demo-block{
+  overflow: hidden;
+}
 .code-demo{
   overflow: auto;
 }
 .demo-block div[class*='language-']{
   background: none;
+  margin: 1rem 0;
 }
 .demo-block div[class~='language-vue']:before{
   content: "";

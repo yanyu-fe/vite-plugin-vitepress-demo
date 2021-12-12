@@ -1,7 +1,7 @@
 <template>
   <div>
     {{counter}}
-    <button @click="add">add</button>
+    <button @click="add">addaddaddaddaddaddaddaddaddaddaddaddaddaddaddaddaddaddaddaddaddaddaddaddaddadd</button>
   </div>
 </template>
 <script setup lang="ts">
