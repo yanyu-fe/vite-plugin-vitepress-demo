@@ -84,7 +84,7 @@ export default {
 <demo src="./example/Test.ts"></demo>
 <!--携带语言代码块-->
 <demo src="./example/Test.ts" language="TypeScript"></demo>
-<!--vue问价生成代码块-->
+<!--vue文件生成代码块-->
 <demo src="./example/Test.vue" raw></demo>
 ```
 
