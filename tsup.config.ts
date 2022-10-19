@@ -10,6 +10,7 @@ export default defineConfig({
     'vite',
     'vitepress',
     'vue',
+    'markdown-it',
   ],
   format: 'esm',
   dts: true,
