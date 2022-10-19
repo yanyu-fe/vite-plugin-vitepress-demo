@@ -1,14 +1,8 @@
-import { defineConfig } from "vite"
-import { vitePluginVitepressDemo } from "../plugins/demoBlock";
+import { defineConfig } from 'vite'
+import { vitePluginVitepressDemo } from '../src'
 
 export default defineConfig({
-    server:{
-        port:9989,
-        fs:{
-            strict:false
-        }
-    },
-    plugins:[
-        vitePluginVitepressDemo()
-    ]
+  plugins: [
+    vitePluginVitepressDemo(),
+  ],
 })

@@ -1,59 +1,62 @@
 {
   "name": "vite-plugin-vitepress-demo",
-  "version": "1.1.5",
-  "description": "this is vitepress demo code block",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "repository": "git@github.com:yanyu-fe/vitepress-plugin-code-block.git",
+  "version": "2.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./theme": {
+      "import": "./dist/theme.js"
+    },
+    "./components/*": {
+      "import": "./dist/components/*"
+    }
+  },
+  "scripts": {
+    "build": "run-s clean ts:build un:build",
+    "clean":"rimraf dist",
+    "un:build": "unbuild",
+    "ts:build": "tsup",
+    "docs:dev": "vitepress dev example",
+    "docs:build": "vitepress build example",
+    "docs:preview": "vitepress serve example"
+  },
+  "keywords": [
+    "vitepress",
+    "markdown",
+    "vite",
+    "vite-plugin"
+  ],
   "author": "aibayanyu",
   "license": "MIT",
-  "typings": "dist/types/index.d.ts",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "vite:build": "vite build",
-    "dev:docs": "vitepress dev example --host",
-    "build:docs": "vitepress build example",
-    "serve:docs": "vitepress serve example",
-    "build": "run-s build:lib build:lib-types build:demo",
-    "build:lib": "rollup -c scripts/rollup.config.ts",
-    "build:demo": "esno scripts/copyFile.ts",
-    "build:lib-types": "tsc -p plugins/demoBlock --declaration --emitDeclarationOnly --outDir dist/types"
-  },
-  "dependencies": {
-    "@rollup/pluginutils": "^4.1.1",
-    "chalk": "4.x",
-    "escape-html": "^1.0.3",
-    "markdown-it": "^12.2.0",
-    "posthtml-parser": "^0.10.1",
-    "posthtml-render": "^3.0.0",
-    "prismjs": "^1.25.0",
-    "vue": "^3.2.23"
-  },
   "devDependencies": {
-    "@babel/types": "^7.16.0",
-    "@rollup/plugin-alias": "^3.1.8",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.0.6",
-    "@types/fs-extra": "^9.0.13",
-    "@types/markdown-it": "^12.2.3",
-    "@types/node": "^16.11.11",
-    "esno": "^0.12.1",
-    "fs-extra": "^10.0.0",
-    "globby": "11.x",
+    "@mistjs/eslint-config-vue": "^0.0.2",
+    "@mistjs/tsconfig-vue": "^0.0.3",
+    "@types/node": "^18.11.2",
+    "eslint": "^8.25.0",
     "npm-run-all": "^4.1.5",
-    "rollup": "^2.60.2",
-    "rollup-plugin-cleandir": "^1.0.0",
-    "rollup-plugin-esbuild": "^4.7.2",
-    "rollup-plugin-typescript2": "^0.31.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.5.2",
-    "vite": "^2.6.14",
-    "vitepress": "^0.20.1"
+    "rimraf": "^3.0.2",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.4",
+    "unbuild": "^0.8.11",
+    "vite": "^3.1.8",
+    "vitepress": "1.0.0-alpha.21",
+    "vue": "^3.2.41"
+  },
+  "peerDependencies": {
+    "vite": "^3.1.8",
+    "vitepress": "1.0.0-alpha.21",
+    "vue": "^3.2.41"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    }
   }
 }
