@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-vitepress-demo",
   "version": "2.0.0",
-  "description": "",
+  "description": "vite plugin vitepress code block demo",
   "main": "dist/index.js",
   "type": "module",
   "types": "dist/index.d.ts",
