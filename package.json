@@ -16,6 +16,11 @@
       "import": "./dist/components/*"
     }
   },
+  "files": [
+    "dist",
+    "README.md",
+    "README.zh-CN.md"
+  ],
   "scripts": {
     "build": "run-s clean ts:build un:build",
     "clean": "rimraf dist",
@@ -23,7 +28,8 @@
     "ts:build": "tsup",
     "docs:dev": "vitepress dev example",
     "docs:build": "vitepress build example",
-    "docs:preview": "vitepress serve example"
+    "docs:preview": "vitepress serve example",
+    "test:u": "vitest -u"
   },
   "keywords": [
     "vitepress",
@@ -36,6 +42,7 @@
   "devDependencies": {
     "@mistjs/eslint-config-vue": "^0.0.2",
     "@mistjs/tsconfig-vue": "^0.0.3",
+    "@types/fs-extra": "^9.0.13",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.11.2",
     "eslint": "^8.25.0",
@@ -61,6 +68,10 @@
     }
   },
   "dependencies": {
-    "markdown-it": "^13.0.1"
+    "fs-extra": "^10.1.0",
+    "magic-string": "^0.26.7",
+    "markdown-it": "^13.0.1",
+    "posthtml-parser": "^0.11.0",
+    "posthtml-render": "^3.0.0"
   }
 }

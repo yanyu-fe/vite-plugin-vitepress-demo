@@ -1,10 +1,39 @@
+import { dirname, resolve } from 'path'
 import type { MarkdownRenderer } from 'vitepress'
 import type { ResolvedConfig } from 'vite'
-import type { UserOptions } from '../typing'
+import MagicString from 'magic-string'
+import type { DemoAttr, UserOptions } from '../typing'
 import { getDemo } from './get-demo'
+import { parserDemo } from './parser-demo'
 
 export class Parser {
   public wrapper = 'demo'
+
+  public cache = new Map<string, DemoAttr>()
+
+  private _filePath: string | undefined
+
+  private _currentCode: MagicString | undefined
+
+  get basePath(): string {
+    return (this.options.base ?? this.config.base) || process.cwd()
+  }
+
+  get filePath(): string | undefined {
+    return dirname(this._filePath ?? this.basePath)
+  }
+
+  public getDemoPath(src: string): string {
+    return resolve(this.filePath ?? this.basePath, src)
+  }
+
+  public hasCache(src: string): boolean {
+    return this.cache.has(src)
+  }
+
+  public setCache(src: string, attr: DemoAttr): void {
+    this.cache.set(src, attr)
+  }
 
   constructor(public options: UserOptions, public config: ResolvedConfig, public md: MarkdownRenderer) {
     if (options.wrapper)
@@ -21,12 +50,30 @@ export class Parser {
     return id.endsWith('.md')
   }
 
-  public transform(code: string, id: string): string | undefined {
+  public async transform(code: string, id: string): Promise<string | undefined> {
     if (!this.checkFile(id))
       return undefined
+    this._filePath = id
     const env = {}
     const tokens = this.md.parse(code, env)
-    getDemo(tokens, this)
-    return undefined
+    this._currentCode = new MagicString(code)
+    const demos = getDemo(tokens, this)
+    await parserDemo(demos, this)
+    // 拿到demos
+    return this._currentCode.toString()
+  }
+
+  public renderCode(code: string, lang: string): string {
+    const env = {}
+    return this.md.render(`\`\`\`${lang}\n${code}\n\`\`\``, env)
+  }
+
+  public renderMd(code: string): string {
+    const env = {}
+    return this.md.render(code, env)
+  }
+
+  public replaceCode(target: string, code: string) {
+    this._currentCode?.replaceAll(target, code)
   }
 }
