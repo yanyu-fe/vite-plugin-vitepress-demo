@@ -1,5 +1,10 @@
-# Test demo
+:::warning 测试
+<demo>
+    <div>测试</div>
+</demo>
+:::
 
-测试demo部分
 
-<demo></demo>
+<demo src="" />
+
+<demo src=""></demo>

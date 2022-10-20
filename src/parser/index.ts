@@ -1,9 +1,21 @@
 import type { MarkdownRenderer } from 'vitepress'
 import type { ResolvedConfig } from 'vite'
 import type { UserOptions } from '../typing'
+import { getDemo } from './get-demo'
 
 export class Parser {
-  constructor(public options: UserOptions, public config: ResolvedConfig, public md: MarkdownRenderer) {}
+  public wrapper = 'demo'
+
+  constructor(public options: UserOptions, public config: ResolvedConfig, public md: MarkdownRenderer) {
+    if (options.wrapper)
+      this.wrapper = options.wrapper
+  }
+
+  public checkWrapper(token: string): boolean {
+    const REGEX_DEMO = new RegExp(`<${this.wrapper}.*?>(.*?)</${this.wrapper}>`, 'gis')
+    const REGEX_DEMO1 = new RegExp(`<${this.wrapper}.*?/>`, 'gis')
+    return REGEX_DEMO.test(token) || REGEX_DEMO1.test(token)
+  }
 
   private checkFile(id: string): boolean {
     return id.endsWith('.md')
@@ -14,7 +26,7 @@ export class Parser {
       return undefined
     const env = {}
     const tokens = this.md.parse(code, env)
-    console.log(tokens, env)
+    getDemo(tokens, this)
     return undefined
   }
 }

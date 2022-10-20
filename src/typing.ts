@@ -1,3 +1,10 @@
 export interface UserOptions {
-  base: string
+  base?: string
+  wrapper?: string
+}
+
+export interface DemoDescription {
+  content: string
+  start: number
+  end: number
 }
