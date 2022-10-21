@@ -4,6 +4,11 @@ export interface UserOptions {
   base?: string
   wrapper?: string
   markdown?: MarkdownOptions
+  /**
+   * support transform code to vue component extra
+   * @default ['.vue', '.tsx', '.jsx']
+   */
+  includeExt?: string[]
 }
 
 export interface DemoAttr{

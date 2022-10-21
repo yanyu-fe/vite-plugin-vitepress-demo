@@ -11,6 +11,8 @@ export class Parser {
 
   public cache = new Map<string, DemoAttr>()
 
+  public cacheSrcCode = new Map<string, string>()
+
   private _filePath: string | undefined
 
   private _currentCode: MagicString | undefined
@@ -38,6 +40,14 @@ export class Parser {
   constructor(public options: UserOptions, public config: ResolvedConfig, public md: MarkdownRenderer) {
     if (options.wrapper)
       this.wrapper = options.wrapper
+    options.includeExt = options.includeExt ?? ['.vue', '.tsx', '.jsx']
+  }
+
+  public checkSupportExt(ext?: string): boolean {
+    if (!ext)
+      return false
+
+    return this.options.includeExt?.includes(ext) ?? false
   }
 
   public checkWrapper(token: string): boolean {
