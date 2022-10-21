@@ -9,6 +9,7 @@ export interface UserOptions {
    * @default ['.vue', '.tsx', '.jsx']
    */
   includeExt?: string[]
+  aliasName?: string
 }
 
 export interface DemoAttr{
@@ -19,4 +20,5 @@ export interface DemoAttr{
   link?: string
   ext?: string
   code?: string
+  highlight?: string
 }

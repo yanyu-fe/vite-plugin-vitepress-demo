@@ -1,6 +1,7 @@
 import { extname } from 'path'
 import type { Node, NodeTag } from 'posthtml-parser'
 import { parser } from 'posthtml-parser'
+import { render } from 'posthtml-render'
 import fsExtra from 'fs-extra'
 import type { DemoAttr } from '../typing'
 import type { Parser } from './index'
@@ -12,12 +13,13 @@ import type { Parser } from './index'
  */
 const parserSrc = async(src: string, md: Parser): Promise<string | undefined> => {
   const demoPath = md.getDemoPath(src)
+  const fullPath = md.getFullPath(src)
   if (md.cacheSrcCode.has(demoPath))
     return md.cacheSrcCode.get(demoPath)
   // check file exist
-  const isExist = await fsExtra.pathExists(demoPath)
+  const isExist = await fsExtra.pathExists(fullPath)
   if (isExist) {
-    const code = await fsExtra.readFile(demoPath, 'utf-8')
+    const code = await fsExtra.readFile(fullPath, 'utf-8')
     if (code) {
       // read cache
       md.cacheSrcCode.set(demoPath, code)
@@ -44,6 +46,7 @@ const parserAttr = async(md: Parser, attrs?: Record<string, any>): Promise<DemoA
     link: attrs.link,
     ext,
     code,
+    highlight: code ? md.renderCode(code, ext.slice(1)) : undefined,
   }
 }
 
@@ -57,13 +60,18 @@ const checkRaw = (demo: string, attrs: DemoAttr, md: Parser) => {
 }
 
 const generateDemo = (demo: string, attrs: DemoAttr, node: NodeTag, nodes: Node[], md: Parser) => {
-  // TODO: generate demo
+  const src = md.getDemoPath(attrs.src)
   node.attrs = {
-    src: attrs.src,
-    title: attrs.title,
-    desc: attrs.desc,
-    link: attrs.link,
+    src,
   } as Record<string, any>
+  const html = render(nodes)
+  if (attrs.code)
+    attrs.code = encodeURIComponent(attrs.code as string)
+  if (attrs.highlight)
+    attrs.highlight = encodeURIComponent(attrs.highlight as string)
+
+  md.setCache(src, attrs)
+  md.replaceCode(demo, html)
 }
 
 export const parserDemo = async(demos: string[], md: Parser) => {

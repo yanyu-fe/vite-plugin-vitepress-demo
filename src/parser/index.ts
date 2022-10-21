@@ -1,7 +1,8 @@
 import { dirname, resolve } from 'path'
 import type { MarkdownRenderer } from 'vitepress'
-import type { ResolvedConfig } from 'vite'
+import type { ResolvedConfig, TransformResult } from 'vite'
 import MagicString from 'magic-string'
+import { normalizePath } from 'vite'
 import type { DemoAttr, UserOptions } from '../typing'
 import { getDemo } from './get-demo'
 import { parserDemo } from './parser-demo'
@@ -18,15 +19,21 @@ export class Parser {
   private _currentCode: MagicString | undefined
 
   get basePath(): string {
-    return (this.options.base ?? this.config.base) || process.cwd()
+    return normalizePath((this.options.base ?? this.config.base) || process.cwd())
   }
 
   get filePath(): string | undefined {
     return dirname(this._filePath ?? this.basePath)
   }
 
-  public getDemoPath(src: string): string {
-    return resolve(this.filePath ?? this.basePath, src)
+  public getDemoPath(src?: string): string {
+    const path = normalizePath(resolve(this.filePath ?? this.basePath, src ?? ''))
+    const base = this.basePath
+    return path.replace(base, '')
+  }
+
+  public getFullPath(src: string): string {
+    return normalizePath(resolve(this.filePath ?? this.basePath, src))
   }
 
   public hasCache(src: string): boolean {
@@ -60,7 +67,7 @@ export class Parser {
     return id.endsWith('.md')
   }
 
-  public async transform(code: string, id: string): Promise<string | undefined> {
+  public async transform(code: string, id: string): Promise<TransformResult | undefined> {
     if (!this.checkFile(id))
       return undefined
     this._filePath = id
@@ -70,7 +77,10 @@ export class Parser {
     const demos = getDemo(tokens, this)
     await parserDemo(demos, this)
     // 拿到demos
-    return this._currentCode.toString()
+    return {
+      code: this._currentCode.toString(),
+      map: this._currentCode.generateMap({ hires: true }),
+    }
   }
 
   public renderCode(code: string, lang: string): string {
@@ -85,5 +95,9 @@ export class Parser {
 
   public replaceCode(target: string, code: string) {
     this._currentCode?.replaceAll(target, code)
+  }
+
+  public load(): string {
+    return 'export default {}'
   }
 }
