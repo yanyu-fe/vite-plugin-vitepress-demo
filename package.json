@@ -29,7 +29,7 @@
     "docs:dev": "vitepress dev example",
     "docs:build": "vitepress build example",
     "docs:preview": "vitepress serve example",
-    "test:u": "vitest -u"
+    "test:u": "vitest -u obj2str"
   },
   "keywords": [
     "vitepress",

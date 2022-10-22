@@ -1,3 +1,10 @@
+<docs>
+---
+title: Index
+---
+
+Test Index Vue
+</docs>
 <template>
   <div>
     Index vue

@@ -26,6 +26,18 @@ export class Parser {
     return dirname(this._filePath ?? this.basePath)
   }
 
+  get blockName(): string {
+    if (this.options?.blockName) {
+      const name = this.options?.blockName
+      // 判断是否为文字或者-
+      if (name.match(/^[a-zA-Z-]+$/))
+        return name
+      else
+        console.warn(`[vite-plugin-vue-demos] ${name} is not valid, please use a-zA-Z  or -`)
+    }
+    return 'docs'
+  }
+
   public getDemoPath(src?: string): string {
     const path = normalizePath(resolve(this.filePath ?? this.basePath, src ?? ''))
     const base = this.basePath
@@ -38,6 +50,13 @@ export class Parser {
 
   public hasCache(src: string): boolean {
     return this.cache.has(src)
+  }
+
+  public getCache() {
+    const obj: Record<string, DemoAttr> = {}
+    for (const [key, value] of Array.from(this.cache.entries()))
+      obj[key] = value
+    return obj
   }
 
   public setCache(src: string, attr: DemoAttr): void {
@@ -88,9 +107,10 @@ export class Parser {
     return this.md.render(`\`\`\`${lang}\n${code}\n\`\`\``, env)
   }
 
-  public renderMd(code: string): string {
+  public renderMd(code: string): { html: string; env: any } {
     const env = {}
-    return this.md.render(code, env)
+    const html = this.md.render(code, env)
+    return { html, env }
   }
 
   public replaceCode(target: string, code: string) {

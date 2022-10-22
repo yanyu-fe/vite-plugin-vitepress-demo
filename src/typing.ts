@@ -1,5 +1,9 @@
 import type { MarkdownOptions } from 'vitepress'
 
+export interface CodeOptions {
+  url: string
+}
+
 export interface UserOptions {
   base?: string
   wrapper?: string
@@ -10,6 +14,13 @@ export interface UserOptions {
    */
   includeExt?: string[]
   aliasName?: string
+  codeSandBox?: CodeOptions // https://codesandbox.io/s/vue-shape-8ciig?file=/src/App.vue
+  stackblitz?: CodeOptions // https://stackblitz.com/edit/vitejs-vite-lsj1ne?file=src/Demo1.vue
+  /**
+   * @description custom vue block name
+   * @default docs
+   */
+  blockName?: string
 }
 
 export interface DemoAttr{

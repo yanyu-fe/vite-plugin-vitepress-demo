@@ -4,6 +4,7 @@ import { parser } from 'posthtml-parser'
 import { render } from 'posthtml-render'
 import fsExtra from 'fs-extra'
 import type { DemoAttr } from '../typing'
+import { renderCode } from './render-code'
 import type { Parser } from './index'
 
 /**
@@ -37,11 +38,20 @@ const parserAttr = async(md: Parser, attrs?: Record<string, any>): Promise<DemoA
     return {}
   const raw = Reflect.has(attrs, 'raw')
   const ext = extname(attrs.src)
-  const code = await parserSrc(attrs.src, md)
+  const code1 = await parserSrc(attrs.src, md)
+  let code = code1
+  let docs: any[] = []
+  if (ext.endsWith('vue')) {
+    const res = await renderCode(code1, md)
+    code = res.code
+    docs = res.docs
+  }
+  const title = docs.length > 0 ? docs[0].title : attrs?.title
+  const desc = docs.length > 0 ? docs[0].desc : attrs?.desc
   return {
     raw,
-    title: attrs.title,
-    desc: attrs.desc,
+    title,
+    desc,
     src: attrs.src,
     link: attrs.link,
     ext,
@@ -61,8 +71,21 @@ const checkRaw = (demo: string, attrs: DemoAttr, md: Parser) => {
 
 const generateDemo = (demo: string, attrs: DemoAttr, node: NodeTag, nodes: Node[], md: Parser) => {
   const src = md.getDemoPath(attrs.src)
+  const liveCodeOption: Record<string, any> = {}
+  if (md.options?.codeSandBox?.url) {
+    liveCodeOption.codeSandBox = {
+      ':codeSandBox': md.options.codeSandBox.url,
+    }
+  }
+  if (md.options?.stackblitz?.url) {
+    liveCodeOption.stackblitz = {
+      ':stackblitz': md.options.stackblitz.url,
+    }
+  }
   node.attrs = {
     src,
+    link: attrs.link,
+    ...liveCodeOption,
   } as Record<string, any>
   const html = render(nodes)
   if (attrs.code)
