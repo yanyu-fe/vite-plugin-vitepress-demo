@@ -17,11 +17,11 @@ export const objToStr = (obj: Record<string, any>): string => {
         else
           str += `${objToStr(item)},`
       }
-      str += '],'
+      str = `${str.slice(0, str.length - 1)}],`
     }
     else {
       str += `${strKey}: ${objToStr(value)},`
     }
   }
-  return `${str}}`
+  return `${str.slice(0, str.length - 1)}}`
 }

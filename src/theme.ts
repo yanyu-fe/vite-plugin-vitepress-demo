@@ -1,5 +1,7 @@
-import Demo from './components/demo.vue'
+import DefaultTheme from './components/default-theme.vue'
 
 export {
-  Demo,
+  DefaultTheme,
 }
+
+export default DefaultTheme

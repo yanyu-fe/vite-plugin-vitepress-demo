@@ -1,10 +1,10 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import { Demo } from '../../../src/theme'
+import { DefaultTheme as DefaultDemo } from '../../../src/theme'
 
 export default {
   ...DefaultTheme,
   enhanceApp({ app }) {
-    app.component('Demo', Demo)
+    app.component('Demo', DefaultDemo)
   },
 } as Theme

@@ -7,10 +7,18 @@ const obj1 = {
   d: undefined,
   e: null,
   g: ['1', 2, true, undefined, null],
+  h: {
+    a: 11,
+    b: '12',
+    c: true,
+    d: undefined,
+    e: null,
+    g: ['1', 2, true, undefined, null],
+  },
 }
 describe('obj2str', () => {
   it('should work', () => {
     const str = objToStr(obj1)
-    expect(str).toMatchInlineSnapshot('"{a: \'1\',b: 1,c: true,d: undefined,e: null,g: [\'1\',2,true,undefined,null,],}"')
+    expect(str).toMatchInlineSnapshot('"{a: \'1\',b: 1,c: true,d: undefined,e: null,g: [\'1\',2,true,undefined,null],h: {a: 11,b: \'12\',c: true,d: undefined,e: null,g: [\'1\',2,true,undefined,null]}}"')
   })
 })
