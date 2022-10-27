@@ -32,4 +32,5 @@ export interface DemoAttr{
   ext?: string
   code?: string
   highlight?: string
+  comp?: any
 }

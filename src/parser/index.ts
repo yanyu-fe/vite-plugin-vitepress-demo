@@ -1,11 +1,12 @@
 import { dirname, resolve } from 'path'
 import type { MarkdownRenderer } from 'vitepress'
 import type { ResolvedConfig, TransformResult } from 'vite'
-import MagicString from 'magic-string'
 import { normalizePath } from 'vite'
+import MagicString from 'magic-string'
 import type { DemoAttr, UserOptions } from '../typing'
 import { getDemo } from './get-demo'
 import { parserDemo } from './parser-demo'
+import { loadCache } from './load-cache'
 
 export class Parser {
   public wrapper = 'demo'
@@ -19,7 +20,7 @@ export class Parser {
   private _currentCode: MagicString | undefined
 
   get basePath(): string {
-    return normalizePath((this.options.base ?? this.config.base) || process.cwd())
+    return normalizePath((this.options.base ?? this.config.root) || process.cwd())
   }
 
   get filePath(): string | undefined {
@@ -30,7 +31,7 @@ export class Parser {
     if (this.options?.blockName) {
       const name = this.options?.blockName
       // 判断是否为文字或者-
-      if (name.match(/^[a-zA-Z-]+$/))
+      if (name.match(/^[a-zA-Z][a-zA-Z-]+$/))
         return name
       else
         console.warn(`[vite-plugin-vue-demos] ${name} is not valid, please use a-zA-Z  or -`)
@@ -42,6 +43,11 @@ export class Parser {
     const path = normalizePath(resolve(this.filePath ?? this.basePath, src ?? ''))
     const base = this.basePath
     return path.replace(base, '')
+  }
+
+  public getImportSrc(src: string): string {
+    const path = this.options?.aliasName ?? '/@/VITEPRESS_DEMO'
+    return normalizePath(`${path}/${src}`)
   }
 
   public getFullPath(src: string): string {
@@ -118,6 +124,6 @@ export class Parser {
   }
 
   public load(): string {
-    return 'export default {}'
+    return loadCache(this)
   }
 }

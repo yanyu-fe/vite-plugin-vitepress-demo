@@ -11,6 +11,6 @@ declare module '*.md' {
 }
 
 declare module 'virtual:*'{
-  const path: string
+  const path: any
   export default path
 }

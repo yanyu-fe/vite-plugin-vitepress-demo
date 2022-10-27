@@ -57,6 +57,7 @@ const parserAttr = async(md: Parser, attrs?: Record<string, any>): Promise<DemoA
     ext,
     code,
     highlight: code ? md.renderCode(code, ext.slice(1)) : undefined,
+    // comp:``
   }
 }
 

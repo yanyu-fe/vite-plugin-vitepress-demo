@@ -15,6 +15,14 @@ const obj1 = {
     e: null,
     g: ['1', 2, true, undefined, null],
   },
+  k: [
+    {
+      a: 11,
+    },
+    {
+      b: 12,
+    },
+  ],
 }
 describe('obj2str', () => {
   it('should work', () => {
