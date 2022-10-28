@@ -1,12 +1,13 @@
 import { dirname, resolve } from 'path'
 import type { MarkdownRenderer } from 'vitepress'
-import type { ResolvedConfig, TransformResult } from 'vite'
+import type { ResolvedConfig, TransformResult, ViteDevServer } from 'vite'
 import { normalizePath } from 'vite'
 import MagicString from 'magic-string'
 import type { DemoAttr, UserOptions } from '../typing'
 import { getDemo } from './get-demo'
 import { parserDemo } from './parser-demo'
 import { loadCache } from './load-cache'
+import { monitorFile } from './monitor-file'
 
 export class Parser {
   public wrapper = 'demo'
@@ -14,6 +15,8 @@ export class Parser {
   public cache = new Map<string, DemoAttr>()
 
   public cacheSrcCode = new Map<string, string>()
+
+  public server: ViteDevServer | undefined
 
   private _filePath: string | undefined
 
@@ -47,7 +50,7 @@ export class Parser {
 
   public getImportSrc(src: string): string {
     const path = this.options?.aliasName ?? '/@/VITEPRESS_DEMO'
-    return normalizePath(`${path}/${src}`)
+    return path + normalizePath(`/${src}`)
   }
 
   public getFullPath(src: string): string {
@@ -73,6 +76,13 @@ export class Parser {
     if (options.wrapper)
       this.wrapper = options.wrapper
     options.includeExt = options.includeExt ?? ['.vue', '.tsx', '.jsx']
+  }
+
+  public setupServer(_server: ViteDevServer) {
+    this.server = _server
+    monitorFile(this).then(() => {
+      // console.log(v)
+    }).catch()
   }
 
   public checkSupportExt(ext?: string): boolean {

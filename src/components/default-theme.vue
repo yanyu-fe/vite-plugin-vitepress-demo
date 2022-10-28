@@ -24,11 +24,7 @@ onMounted(async() => {
   const demo = demos[props.src]
   if (demo && demo.comp)
     demoComp.value = defineAsyncComponent(demo.comp)
-  if (demo) {
-    if (demo.comp)
-      delete demo.comp
-
+  if (demo)
     content.value = demo
-  }
 })
 </script>

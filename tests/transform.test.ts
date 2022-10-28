@@ -18,8 +18,7 @@ describe('transform md', async() => {
   it('get demo inline', async() => {
     const demos = await parser.transform(inlineCode, inlineMd)
     parser.getCache()
-    const parserStr = parser.load()
-    console.log(parserStr)
+    // parser.load()
     expect(demos).toMatchInlineSnapshot(`
       {
         "code": "<demo src=\\"/tests/fixtures/demos/basic.vue\\"></demo>
