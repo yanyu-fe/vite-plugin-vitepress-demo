@@ -31,8 +31,8 @@ const vitePluginVitepressDemo = (_opt?: UserOptions): PluginOption => {
       md = await createMarkdownRenderer(config.root, options?.markdown ?? {}, config.base ?? '/')
       parser = new Parser(options, config, md)
     },
-    configureServer(server) {
-      parser.setupServer(server)
+    async configureServer(server) {
+      await parser.setupServer(server)
     },
     resolveId(id) {
       if (id === virtualModule)

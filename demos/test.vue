@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>Basic</h1>
-    <p>Basic demo12</p>
+    <!---->
   </div>
 </template>
 

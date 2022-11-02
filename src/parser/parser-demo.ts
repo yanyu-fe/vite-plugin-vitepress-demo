@@ -1,7 +1,6 @@
 import { extname } from 'path'
 import type { Node, NodeTag } from 'posthtml-parser'
 import { parser } from 'posthtml-parser'
-import { render } from 'posthtml-render'
 import fsExtra from 'fs-extra'
 import type { DemoAttr } from '../typing'
 import { renderCode } from './render-code'
@@ -15,15 +14,21 @@ import type { Parser } from './index'
 const parserSrc = async(src: string, md: Parser): Promise<string | undefined> => {
   const demoPath = md.getDemoPath(src)
   const fullPath = md.getFullPath(src)
-  if (md.cacheSrcCode.has(demoPath))
-    return md.cacheSrcCode.get(demoPath)
+  if (md.cacheStore.has(fullPath)) {
+    const cache = md.cacheStore.get(fullPath)
+    if (cache)
+      return cache.code
+  }
   // check file exist
   const isExist = await fsExtra.pathExists(fullPath)
   if (isExist) {
     const code = await fsExtra.readFile(fullPath, 'utf-8')
     if (code) {
       // read cache
-      md.cacheSrcCode.set(demoPath, code)
+      md.cacheStore.set(demoPath, {
+        code,
+        relativePath: demoPath,
+      })
       return code
     }
   }
@@ -64,7 +69,7 @@ const checkRaw = (demo: string, attrs: DemoAttr, md: Parser) => {
   const ext = attrs?.ext?.slice(1) ?? 'html'
   const code = attrs.code ?? ''
   if (code) {
-    const codeInfo = md.renderCode(code, ext)
+    const codeInfo = md.renderCode(code, ext, false)
     md.replaceCode(demo, codeInfo)
   }
 }
@@ -87,14 +92,14 @@ const generateDemo = (demo: string, attrs: DemoAttr, node: NodeTag, nodes: Node[
     link: attrs.link,
     ...liveCodeOption,
   } as Record<string, any>
-  const html = render(nodes)
-  if (attrs.code)
-    attrs.code = encodeURIComponent(attrs.code as string)
-  if (attrs.highlight)
-    attrs.highlight = encodeURIComponent(attrs.highlight as string)
+  // const html = render(nodes)
+  // if (attrs.code)
+  //   attrs.code = encodeURIComponent(attrs.code as string)
+  // if (attrs.highlight)
+  //   attrs.highlight = encodeURIComponent(attrs.highlight as string)
 
-  md.setCache(src, attrs)
-  md.replaceCode(demo, html)
+  // md.setCache(src, attrs)
+  // md.replaceCode(demo, html)
 }
 
 export const parserDemo = async(demos: string[], md: Parser) => {
@@ -108,7 +113,7 @@ export const parserDemo = async(demos: string[], md: Parser) => {
       checkRaw(demo, attrs, md)
     }
     else {
-      // 当前不是raw模式
+    // 当前不是raw模式
       generateDemo(demo, attrs, node, nodes, md)
     }
   }

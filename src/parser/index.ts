@@ -3,11 +3,12 @@ import type { MarkdownRenderer } from 'vitepress'
 import type { ResolvedConfig, TransformResult, ViteDevServer } from 'vite'
 import { normalizePath } from 'vite'
 import MagicString from 'magic-string'
-import type { DemoAttr, UserOptions } from '../typing'
+import type { CacheStore, DemoAttr, UserOptions } from '../typing'
 import { getDemo } from './get-demo'
 import { parserDemo } from './parser-demo'
 import { loadCache } from './load-cache'
-import { monitorFile } from './monitor-file'
+import { globFiles } from './glob-files'
+// import { monitorFile } from './monitor-file'
 
 export class Parser {
   public wrapper = 'demo'
@@ -15,6 +16,8 @@ export class Parser {
   public cache = new Map<string, DemoAttr>()
 
   public cacheSrcCode = new Map<string, string>()
+
+  public cacheStore = new Map<string, CacheStore>()
 
   public server: ViteDevServer | undefined
 
@@ -30,6 +33,14 @@ export class Parser {
     return dirname(this._filePath ?? this.basePath)
   }
 
+  get glob() {
+    const glob = this.options.glob
+    if (glob)
+      return glob
+
+    return './**/demos/*.{vue,tsx,jsx}'
+  }
+
   get blockName(): string {
     if (this.options?.blockName) {
       const name = this.options?.blockName
@@ -42,10 +53,23 @@ export class Parser {
     return 'docs'
   }
 
+  get moduleId(): string {
+    return '\0virtual:vitepress-demo'
+  }
+
   public getDemoPath(src?: string): string {
     const path = normalizePath(resolve(this.filePath ?? this.basePath, src ?? ''))
     const base = this.basePath
     return path.replace(base, '')
+  }
+
+  public getBaseDemoPath(path: string): string {
+    const full = normalizePath(resolve(this.basePath, path))
+    const base = full.replace(this.basePath, '')
+    if (base.startsWith('/'))
+      return base
+
+    return `/${base}`
   }
 
   public getImportSrc(src: string): string {
@@ -53,8 +77,8 @@ export class Parser {
     return path + normalizePath(`/${src}`)
   }
 
-  public getFullPath(src: string): string {
-    return normalizePath(resolve(this.filePath ?? this.basePath, src))
+  public getFullPath(src: string, useBase = false): string {
+    return normalizePath(resolve(useBase ? this.basePath : this.filePath ?? this.basePath, src))
   }
 
   public hasCache(src: string): boolean {
@@ -78,11 +102,12 @@ export class Parser {
     options.includeExt = options.includeExt ?? ['.vue', '.tsx', '.jsx']
   }
 
-  public setupServer(_server: ViteDevServer) {
+  public async setupServer(_server: ViteDevServer) {
     this.server = _server
-    monitorFile(this).then(() => {
-      // console.log(v)
-    }).catch()
+    await globFiles(this)
+    // monitorFile(this).then(() => {
+    //   // console.log(v)
+    // }).catch()
   }
 
   public checkSupportExt(ext?: string): boolean {
@@ -118,9 +143,11 @@ export class Parser {
     }
   }
 
-  public renderCode(code: string, lang: string): string {
+  public renderCode(code: string, lang: string, render = true): string {
     const env = {}
-    return this.md.render(`\`\`\`${lang}\n${code}\n\`\`\``, env)
+    const source = `\`\`\`${lang}\n${code}\n\`\`\``
+    if (!render) return source
+    return this.md.render(source, env)
   }
 
   public renderMd(code: string): { html: string; env: any } {

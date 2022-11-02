@@ -69,6 +69,8 @@
     }
   },
   "dependencies": {
+    "chokidar": "^3.5.3",
+    "fast-glob": "^3.2.12",
     "fs-extra": "^10.1.0",
     "magic-string": "^0.26.7",
     "markdown-it": "^13.0.1",

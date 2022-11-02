@@ -8,6 +8,7 @@ export interface UserOptions {
   base?: string
   wrapper?: string
   markdown?: MarkdownOptions
+  glob?: string | string[]
   /**
    * support transform code to vue component extra
    * @default ['.vue', '.tsx', '.jsx']
@@ -33,4 +34,9 @@ export interface DemoAttr{
   code?: string
   highlight?: string
   comp?: any
+}
+
+export interface CacheStore{
+  relativePath: string
+  code: string
 }
