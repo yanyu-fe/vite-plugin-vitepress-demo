@@ -1,8 +1,7 @@
 import { extname } from 'path'
 import type { Node, NodeTag } from 'posthtml-parser'
 import { parser } from 'posthtml-parser'
-import fsExtra from 'fs-extra'
-import type { DemoAttr } from '../typing'
+import type { CacheStore, DemoAttr } from '../typing'
 import { renderCode } from './render-code'
 import type { Parser } from './index'
 
@@ -11,26 +10,11 @@ import type { Parser } from './index'
  * @param src
  * @param md
  */
-const parserSrc = async(src: string, md: Parser): Promise<string | undefined> => {
+const parserSrc = async(src: string, md: Parser): Promise<CacheStore | undefined> => {
   const demoPath = md.getDemoPath(src)
-  const fullPath = md.getFullPath(src)
-  if (md.cacheStore.has(fullPath)) {
-    const cache = md.cacheStore.get(fullPath)
-    if (cache)
-      return cache.code
-  }
-  // check file exist
-  const isExist = await fsExtra.pathExists(fullPath)
-  if (isExist) {
-    const code = await fsExtra.readFile(fullPath, 'utf-8')
-    if (code) {
-      // read cache
-      md.cacheStore.set(demoPath, {
-        code,
-        relativePath: demoPath,
-      })
-      return code
-    }
+  const relativePath = md.getBaseDemoPath(demoPath)
+  if (md.cacheStore.has(relativePath)) {
+    return md.cacheStore.get(relativePath)
   }
   else {
     console.error(`[vitepress-plugin-demo] ${src} not found`)
@@ -44,15 +28,11 @@ const parserAttr = async(md: Parser, attrs?: Record<string, any>): Promise<DemoA
   const raw = Reflect.has(attrs, 'raw')
   const ext = extname(attrs.src)
   const code1 = await parserSrc(attrs.src, md)
-  let code = code1
-  let docs: any[] = []
-  if (ext.endsWith('vue')) {
-    const res = await renderCode(code1, md)
-    code = res.code
-    docs = res.docs
-  }
+  const code = code1?.code
+  const docs: any[] = code1?.docs ?? []
   const title = docs.length > 0 ? docs[0].title : attrs?.title
   const desc = docs.length > 0 ? docs[0].desc : attrs?.desc
+  const highlight = code1?.highlight
   return {
     raw,
     title,
@@ -61,7 +41,7 @@ const parserAttr = async(md: Parser, attrs?: Record<string, any>): Promise<DemoA
     link: attrs.link,
     ext,
     code,
-    highlight: code ? md.renderCode(code, ext.slice(1)) : undefined,
+    highlight,
   }
 }
 
@@ -92,14 +72,6 @@ const generateDemo = (demo: string, attrs: DemoAttr, node: NodeTag, nodes: Node[
     link: attrs.link,
     ...liveCodeOption,
   } as Record<string, any>
-  // const html = render(nodes)
-  // if (attrs.code)
-  //   attrs.code = encodeURIComponent(attrs.code as string)
-  // if (attrs.highlight)
-  //   attrs.highlight = encodeURIComponent(attrs.highlight as string)
-
-  // md.setCache(src, attrs)
-  // md.replaceCode(demo, html)
 }
 
 export const parserDemo = async(demos: string[], md: Parser) => {

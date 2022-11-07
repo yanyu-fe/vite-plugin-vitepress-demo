@@ -3,11 +3,13 @@ import type { MarkdownRenderer } from 'vitepress'
 import type { ResolvedConfig, TransformResult, ViteDevServer } from 'vite'
 import { normalizePath } from 'vite'
 import MagicString from 'magic-string'
+import type { FSWatcher } from 'chokidar'
 import type { CacheStore, DemoAttr, UserOptions } from '../typing'
 import { getDemo } from './get-demo'
 import { parserDemo } from './parser-demo'
 import { loadCache } from './load-cache'
 import { globFiles } from './glob-files'
+import { watcherServer } from './watcher-server'
 // import { monitorFile } from './monitor-file'
 
 export class Parser {
@@ -24,6 +26,8 @@ export class Parser {
   private _filePath: string | undefined
 
   private _currentCode: MagicString | undefined
+
+  public watcher: FSWatcher | undefined
 
   get basePath(): string {
     return normalizePath((this.options.base ?? this.config.root) || process.cwd())
@@ -72,6 +76,12 @@ export class Parser {
     return `/${base}`
   }
 
+  public checkIsInRoot(path: string): boolean {
+    const root = normalizePath(this.config.root || process.cwd())
+    path = normalizePath(path)
+    return path.startsWith(root)
+  }
+
   public getImportSrc(src: string): string {
     const path = this.options?.aliasName ?? '/@/VITEPRESS_DEMO'
     return path + normalizePath(`/${src}`)
@@ -105,9 +115,7 @@ export class Parser {
   public async setupServer(_server: ViteDevServer) {
     this.server = _server
     await globFiles(this)
-    // monitorFile(this).then(() => {
-    //   // console.log(v)
-    // }).catch()
+    watcherServer(this)
   }
 
   public checkSupportExt(ext?: string): boolean {
