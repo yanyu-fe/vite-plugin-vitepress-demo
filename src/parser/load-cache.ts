@@ -1,9 +1,9 @@
-import type { DemoAttr } from '../typing'
+import type { CacheStore } from '../typing'
 import { objToStr } from './obj-to-str'
 import type { Parser } from './index'
 
 export const loadCache = (md: Parser) => {
-  const obj: Record<string, DemoAttr> = {}
+  const obj: Record<string, CacheStore> = {}
   for (const [key, value] of Array.from(md.cacheStore.entries())) {
     obj[key] = {
       ...value,

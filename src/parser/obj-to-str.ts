@@ -8,7 +8,7 @@ export const objToStr = (obj: Record<string, any>, isDeep = 1): string => {
     if (strKey === 'comp' && isDeep === 2) {
       str += `${strKey}: ${value},`
     }
-    else if (isString(value)) { str += `'${strKey}': '${value}',` }
+    else if (isString(value)) { str += `'${strKey}': \`${value}\`,` }
     else if (isBase(value)) { str += `'${strKey}': ${value},` }
     else if (Array.isArray(value)) {
       str += `'${strKey}': [`
@@ -20,7 +20,7 @@ export const objToStr = (obj: Record<string, any>, isDeep = 1): string => {
         else
           str += `${objToStr(item, isDeep + 1)},`
       }
-      str = `${str.slice(0, str.length - 1)}],`
+      str = `${str.endsWith(',') ? str.slice(0, str.length - 1) : str}],`
     }
     else {
       str += `'${strKey}': ${objToStr(value, isDeep + 1)},`

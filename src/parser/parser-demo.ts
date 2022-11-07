@@ -1,8 +1,9 @@
 import { extname } from 'path'
 import type { Node, NodeTag } from 'posthtml-parser'
 import { parser } from 'posthtml-parser'
+import { render } from 'posthtml-render'
 import type { CacheStore, DemoAttr } from '../typing'
-import { renderCode } from './render-code'
+import { decodeData } from './parser-cache'
 import type { Parser } from './index'
 
 /**
@@ -49,13 +50,14 @@ const checkRaw = (demo: string, attrs: DemoAttr, md: Parser) => {
   const ext = attrs?.ext?.slice(1) ?? 'html'
   const code = attrs.code ?? ''
   if (code) {
-    const codeInfo = md.renderCode(code, ext, false)
+    const codeInfo = md.renderCode(decodeData(code)!, ext, false)
     md.replaceCode(demo, codeInfo)
   }
 }
 
 const generateDemo = (demo: string, attrs: DemoAttr, node: NodeTag, nodes: Node[], md: Parser) => {
-  const src = md.getDemoPath(attrs.src)
+  let src = md.getDemoPath(attrs.src)
+  src = src.startsWith('/') ? src : `/${src}`
   const liveCodeOption: Record<string, any> = {}
   if (md.options?.codeSandBox?.url) {
     liveCodeOption.codeSandBox = {
@@ -72,6 +74,8 @@ const generateDemo = (demo: string, attrs: DemoAttr, node: NodeTag, nodes: Node[
     link: attrs.link,
     ...liveCodeOption,
   } as Record<string, any>
+  const html = render(node)
+  md.replaceCode(demo, html)
 }
 
 export const parserDemo = async(demos: string[], md: Parser) => {

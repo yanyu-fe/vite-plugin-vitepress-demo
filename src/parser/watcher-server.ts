@@ -3,6 +3,7 @@ import chokidar from 'chokidar'
 import fsExtra from 'fs-extra'
 import type { CacheStore } from '../typing'
 import { renderCode } from './render-code'
+import { parserCache } from './parser-cache'
 import type { Parser } from './index'
 export const watcherServer = (md: Parser) => {
   md.watcher = chokidar.watch(md.glob, {
@@ -25,14 +26,14 @@ export const watcherServer = (md: Parser) => {
       desc = renderCodeData.docs?.[0]?.desc
       docs = renderCodeData.docs
     }
-    const storeItem: CacheStore = {
+    const storeItem: CacheStore = parserCache({
       relativePath,
       code,
       title,
       desc,
       docs,
       highlight: md.renderCode(code as string, ext.slice(1)),
-    }
+    })
     md.cacheStore.set(relativePath, storeItem)
     modules?.forEach((module) => {
       md.server?.moduleGraph.invalidateModule(module)
@@ -63,24 +64,25 @@ export const watcherServer = (md: Parser) => {
         storeItem.code = code
         storeItem.docs = renderCodeData.docs
         storeItem.highlight = md.renderCode(code as string, ext.slice(1))
+        storeItem = parserCache(storeItem)
       }
       else {
-        storeItem = {
+        storeItem = parserCache({
           relativePath,
           code,
           title,
           docs,
           desc,
           highlight: md.renderCode(code as string, ext.slice(1)),
-        }
+        })
       }
     }
     if (!storeItem) {
-      storeItem = {
+      storeItem = parserCache({
         relativePath,
         code,
         highlight: md.renderCode(code as string, ext.slice(1)),
-      }
+      })
     }
     md.cacheStore.set(relativePath, storeItem!)
   })

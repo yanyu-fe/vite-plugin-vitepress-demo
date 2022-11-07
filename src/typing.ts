@@ -43,4 +43,5 @@ export interface CacheStore{
   title?: string
   desc?: string
   docs?: any[]
+  comp?: any
 }
