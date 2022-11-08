@@ -21,7 +21,7 @@ specifiers:
   unbuild: ^0.8.11
   vite: ^3.2.3
   vite-plugin-inspect: ^0.7.7
-  vitepress: 1.0.0-alpha.25
+  vitepress: 1.0.0-alpha.27
   vitest: ^0.24.5
   vue: ^3.2.41
 
@@ -48,7 +48,7 @@ devDependencies:
   unbuild: 0.8.11
   vite: 3.2.3_@types+node@18.11.9
   vite-plugin-inspect: 0.7.7_vite@3.2.3
-  vitepress: 1.0.0-alpha.25_@types+node@18.11.9
+  vitepress: 1.0.0-alpha.27_@types+node@18.11.9
   vitest: 0.24.5
   vue: 3.2.41
 
@@ -3688,14 +3688,6 @@ packages:
     resolution: {integrity: sha512-8o/QEhSSRb1a5i7TFR0iM4G16Z0vYB2OQVs4G3aAFXjn3T6yEx8AZxy1PgDF7I00LZHYA3WxaSYIf5e5sAX8Rw==}
     dev: true
 
-  /shiki-processor/0.1.1_shiki@0.11.1:
-    resolution: {integrity: sha512-K2v/JNHdMRGFnbcVqAgvPU8qmZNgtiBrYcYKe3O6Lx2W0RoyiwzrrpCUU917b2r2EMS+2FNgRIgz9xvtmF/L7w==}
-    peerDependencies:
-      shiki: ^0.11.1
-    dependencies:
-      shiki: 0.11.1
-    dev: true
-
   /shiki/0.11.1:
     resolution: {integrity: sha512-EugY9VASFuDqOexOgXR18ZV+TbFrQHeCpEYaXamO+SZlsnT/2LxuLBX25GGtIrwaEVFXUAbUQ601SWE2rMwWHA==}
     dependencies:
@@ -4177,8 +4169,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.25_@types+node@18.11.9:
-    resolution: {integrity: sha512-qvKQ4aCArGL8nxP7BAeMBY/N9qm6fX5/dVNGESDvpkm/M8BQlIkOIEanlkAEPY9VOCMA1zcX3wtstcEcnjc5fA==}
+  /vitepress/1.0.0-alpha.27_@types+node@18.11.9:
+    resolution: {integrity: sha512-7/PwlIRZANvB2uyi8oi4oMXuH84g2/pAaoymb+ObBCs60m0oVxKMPO28w7R/svqSnnE+bNDOuLzTCXt7gn513g==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.0
@@ -4188,7 +4180,6 @@ packages:
       '@vueuse/core': 9.4.0_vue@3.2.41
       body-scroll-lock: 4.0.0-beta.0
       shiki: 0.11.1
-      shiki-processor: 0.1.1_shiki@0.11.1
       vite: 3.2.3_@types+node@18.11.9
       vue: 3.2.41
     transitivePeerDependencies:
