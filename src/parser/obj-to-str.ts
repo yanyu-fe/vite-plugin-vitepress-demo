@@ -26,5 +26,5 @@ export const objToStr = (obj: Record<string, any>, isDeep = 1): string => {
       str += `'${strKey}': ${objToStr(value, isDeep + 1)},`
     }
   }
-  return `${str.slice(0, str.length - 1)}}`
+  return `${str.slice(0, str.length > 1 ? str.length - 1 : str.length)}}`
 }
