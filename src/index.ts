@@ -15,6 +15,7 @@ const vitePluginVitepressDemo = (_opt?: UserOptions): PluginOption => {
   const virtualModuleId = `\0${virtualModule}`
   return {
     name: 'vite-plugin-vitepress-demo',
+    enforce: 'pre',
     config(config) {
       const path = normalizePath(options.base || config.root || process.cwd())
       return {

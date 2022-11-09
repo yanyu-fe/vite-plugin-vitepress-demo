@@ -9,6 +9,7 @@ export interface UserOptions {
   wrapper?: string
   markdown?: MarkdownOptions
   glob?: string | string[]
+  exclude?: string | string[]
   /**
    * support transform code to vue component extra
    * @default ['.vue', '.tsx', '.jsx']

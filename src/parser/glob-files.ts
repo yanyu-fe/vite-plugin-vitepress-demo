@@ -30,10 +30,12 @@ export const parserSingleFile = async(md: Parser, fullPath: string, file: string
     highlight: md.renderCode(code as string, ext.slice(1)),
   })
 }
+const baseIgnore = ['**/node_modules/**', '**/dist/**', '**/build/**']
 
 export const globFiles = async(md: Parser) => {
   const files = await fg(md.glob, {
     cwd: md.basePath,
+    ignore: [...baseIgnore, ...md.excludeFiles],
   })
   /**
      * 拿到文件对文件进行缓存

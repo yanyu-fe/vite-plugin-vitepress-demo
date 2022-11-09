@@ -29,6 +29,10 @@ export class Parser {
 
   public watcher: FSWatcher | undefined
 
+  get excludeFiles() {
+    return this.options.exclude ?? ['**/.vitepress/**']
+  }
+
   get basePath(): string {
     return normalizePath((this.options.base ?? this.config.root) || process.cwd())
   }
