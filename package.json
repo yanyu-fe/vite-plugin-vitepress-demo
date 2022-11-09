@@ -14,6 +14,12 @@
     },
     "./components/*": {
       "import": "./dist/components/*"
+    },
+    "./dist/theme": {
+      "import": "./dist/theme.js"
+    },
+    "./dist/components/*": {
+      "import": "./dist/components/*"
     }
   },
   "files": [
