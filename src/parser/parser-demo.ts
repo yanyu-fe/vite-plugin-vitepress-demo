@@ -69,8 +69,12 @@ const generateDemo = (demo: string, attrs: DemoAttr, node: NodeTag, nodes: Node[
       ':stackblitz': md.options.stackblitz.url,
     }
   }
+  const title = attrs.title
+  const desc = attrs.desc
   node.attrs = {
     src,
+    title,
+    desc,
     link: attrs.link,
     ...liveCodeOption,
   } as Record<string, any>
