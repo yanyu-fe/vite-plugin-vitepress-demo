@@ -42,7 +42,7 @@ const vitePluginVitepressDemo = (_opt?: UserOptions): PluginOption => {
         return virtualModuleId
     },
     async transform(code, id) {
-      if (id.endsWith('lang.docs'))
+      if (id.endsWith(`lang.${parser.blockName}`))
         return 'export default {}'
 
       return await parser.transform(code, id)

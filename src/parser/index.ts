@@ -68,6 +68,8 @@ export class Parser {
   }
 
   public getBaseDemoPath(path: string): string {
+    if (path.startsWith('/'))
+      path = path.slice(1)
     const full = normalizePath(resolve(this.basePath, path))
     const base = full.replace(this.basePath, '')
     if (base.startsWith('/'))
