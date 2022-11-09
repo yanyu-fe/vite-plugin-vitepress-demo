@@ -2,7 +2,12 @@ import type { CacheStore } from '../typing'
 
 export const decodeData = (str: string |undefined): string | undefined => {
   if (!str) return undefined
-  return decodeURIComponent(str)
+  try {
+    return decodeURIComponent(str)
+  }
+  catch (e) {
+    return str
+  }
 }
 
 export const encodeData = (str: string |undefined): string | undefined => {
