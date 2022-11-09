@@ -11,9 +11,12 @@ export const watcherServer = (md: Parser) => {
   })
 
   md.watcher?.on('add', async(path) => {
-    const modules = md.server?.moduleGraph?.getModulesByFile(md.moduleId)
     const relativePath = md.getBaseDemoPath(path)
+    if (md.cacheStore.has(relativePath))
+      return
+
     const fullPath = md.getFullPath(path, true)
+    const modules = md.server?.moduleGraph?.getModulesByFile(md.moduleId)
     let code = await fsExtra.readFile(fullPath, 'utf-8')
     let title
     let desc

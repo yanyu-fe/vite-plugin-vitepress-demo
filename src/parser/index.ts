@@ -118,6 +118,10 @@ export class Parser {
     watcherServer(this)
   }
 
+  public async buildCache() {
+    await globFiles(this)
+  }
+
   public checkSupportExt(ext?: string): boolean {
     if (!ext)
       return false

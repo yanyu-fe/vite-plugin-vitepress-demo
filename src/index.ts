@@ -4,7 +4,6 @@ import { createMarkdownRenderer } from 'vitepress'
 import { normalizePath } from 'vite'
 import type { UserOptions } from './typing'
 import { Parser } from './parser'
-import { monitorFile } from './parser/monitor-file'
 
 const vitePluginVitepressDemo = (_opt?: UserOptions): PluginOption => {
   let config: ResolvedConfig
@@ -26,6 +25,10 @@ const vitePluginVitepressDemo = (_opt?: UserOptions): PluginOption => {
         },
       }
     },
+    async buildStart() {
+      parser.cacheStore.clear()
+      await parser.buildCache()
+    },
     async configResolved(_config) {
       config = _config
       md = await createMarkdownRenderer(config.root, options?.markdown ?? {}, config.base ?? '/')
@@ -39,6 +42,9 @@ const vitePluginVitepressDemo = (_opt?: UserOptions): PluginOption => {
         return virtualModuleId
     },
     async transform(code, id) {
+      if (id.endsWith('lang.docs'))
+        return 'export default {}'
+
       return await parser.transform(code, id)
     },
     load(id) {
