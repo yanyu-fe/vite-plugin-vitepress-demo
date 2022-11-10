@@ -30,7 +30,7 @@ export const parserSingleFile = async(md: Parser, fullPath: string, file: string
     highlight: md.renderCode(code as string, ext.slice(1)),
   })
 }
-const baseIgnore = ['**/node_modules/**', '**/dist/**', '**/build/**']
+const baseIgnore = ['**/node_modules/**', '**/dist/**', '**/build/**', '**/test/**', '**/tests/**', '**/__tests__/**']
 
 export const globFiles = async(md: Parser) => {
   const files = await fg(md.glob, {

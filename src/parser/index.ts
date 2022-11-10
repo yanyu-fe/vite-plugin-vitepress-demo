@@ -163,7 +163,7 @@ export class Parser {
 
   public renderCode(code: string, lang: string, render = true): string {
     const env = {}
-    const source = `\`\`\`${lang}\n${code}\n\`\`\``
+    const source = `\n\`\`\`${lang}\n${code}\n\`\`\`\n`
     if (!render) return source
     return this.md.render(source, env)
   }

@@ -59,4 +59,6 @@ export {
   vitePluginVitepressDemo,
 }
 
+export const VitePluginVitepressDemo = vitePluginVitepressDemo
+
 export default vitePluginVitepressDemo
