@@ -35,7 +35,8 @@
     "docs:dev": "vitepress dev example",
     "docs:build": "vitepress build example",
     "docs:preview": "vitepress serve example",
-    "test:u": "vitest -u obj2str"
+    "test:u": "vitest -u obj2str",
+    "release": "pnpm exec bumpp"
   },
   "keywords": [
     "vitepress",
@@ -53,6 +54,7 @@
     "@types/fs-extra": "^9.0.13",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.11.9",
+    "bumpp": "^8.2.1",
     "eslint": "^8.27.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
