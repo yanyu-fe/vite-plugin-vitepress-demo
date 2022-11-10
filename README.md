@@ -4,6 +4,8 @@ A vite plugin for vitepress code block demo.
 
 English | [简体中文](./README.zh-CN.md)
 
+![banner](./banner.png)
+
 ## Install
 
 ```bash

@@ -4,6 +4,7 @@
 
 [English](./README.md) | 简体中文
 
+![banner](./banner.png)
 
 ## 安装
 
@@ -126,3 +127,10 @@ const msg = ref('Hello World')
 ```md
 <demo src="./demos/docs.vue"></demo>
 ```
+
+
+## 作者微信
+
+遇到问题issue可能会查看不及时，可以加我微信，备注`vitepress`。
+
+![wechat](./wechat.png)

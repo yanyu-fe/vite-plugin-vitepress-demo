@@ -31,7 +31,8 @@
     "dist",
     "README.md",
     "README.zh-CN.md",
-    "theme.d.ts"
+    "theme.d.ts",
+    "banner.png"
   ],
   "scripts": {
     "build": "run-s clean ts:build un:build cp:theme",
