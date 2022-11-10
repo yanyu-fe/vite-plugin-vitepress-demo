@@ -4,6 +4,7 @@ import { parser } from 'posthtml-parser'
 import { render } from 'posthtml-render'
 import type { CacheStore, DemoAttr } from '../typing'
 import { decodeData } from './parser-cache'
+import { isObject } from './utils'
 import type { Parser } from './index'
 
 /**
@@ -55,7 +56,7 @@ const checkRaw = (demo: string, attrs: DemoAttr, md: Parser) => {
   }
 }
 
-const generateDemo = (demo: string, attrs: DemoAttr, node: NodeTag, nodes: Node[], md: Parser) => {
+const generateDemo = (demo: string, attrs: DemoAttr, node: NodeTag, nodes: Node[], md: Parser, replace = true) => {
   let src = md.getDemoPath(attrs.src)
   src = src.startsWith('/') ? src : `/${src}`
   const liveCodeOption: Record<string, any> = {}
@@ -78,7 +79,34 @@ const generateDemo = (demo: string, attrs: DemoAttr, node: NodeTag, nodes: Node[
     link: attrs.link,
     ...liveCodeOption,
   } as Record<string, any>
-  const html = render(node)
+  if (replace) {
+    const html = render(node)
+    md.replaceCode(demo, html)
+  }
+}
+
+const chunkMultiDemo = async(demo: string, nodes: Node[], md: Parser) => {
+  const newNodes: Node[] = []
+  for (const node of nodes) {
+    if (isObject(node) && node.tag === md.wrapper) {
+      const attrs = await parserAttr(md, node.attrs)
+      if (attrs.raw || !md.checkSupportExt(attrs.ext)) {
+        const ext = attrs?.ext?.slice(1) ?? 'html'
+        const code = attrs.code ?? ''
+        const codeInfo = md.renderCode(decodeData(code)!, ext, false)
+        const parserNode = parser(codeInfo)
+        newNodes.push(...parserNode)
+      }
+      else {
+        generateDemo(demo, attrs, node, nodes, md, false)
+        newNodes.push(node)
+      }
+    }
+    else {
+      newNodes.push(node)
+    }
+  }
+  const html = render(newNodes)
   md.replaceCode(demo, html)
 }
 
@@ -86,15 +114,23 @@ export const parserDemo = async(demos: string[], md: Parser) => {
   const deduplicateDemos = [...new Set(demos || [])]
   for (const demo of deduplicateDemos) {
     const nodes: Node[] = parser(demo)
-    const node: NodeTag = nodes[0] as NodeTag
-    const attrs = await parserAttr(md, node.attrs)
-    if (attrs.raw || !md.checkSupportExt(attrs.ext)) {
-      // 当前是源码模式
-      checkRaw(demo, attrs, md)
+    /**
+     * 处理单个和多个 demo
+     */
+    if (nodes.length === 1) {
+      const node: NodeTag = nodes[0] as NodeTag
+      const attrs = await parserAttr(md, node.attrs)
+      if (attrs.raw || !md.checkSupportExt(attrs.ext)) {
+        // 当前是源码模式
+        checkRaw(demo, attrs, md)
+      }
+      else {
+      // 当前不是raw模式
+        generateDemo(demo, attrs, node, nodes, md)
+      }
     }
     else {
-    // 当前不是raw模式
-      generateDemo(demo, attrs, node, nodes, md)
+      await chunkMultiDemo(demo, nodes, md)
     }
   }
 }
