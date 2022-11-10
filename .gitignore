@@ -5,3 +5,4 @@ node_modules
 *.log
 *.local
 dist
+theme.d.ts

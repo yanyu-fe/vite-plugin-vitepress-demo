@@ -1,5 +1,5 @@
-import DefaultTheme from './components/default-theme.vue'
-import AntdTheme from './components/antd.vue'
+import DefaultTheme from './components/default/index.vue'
+import AntdTheme from './components/antd/index.vue'
 
 export {
   DefaultTheme,
