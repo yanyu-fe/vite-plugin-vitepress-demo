@@ -6,6 +6,9 @@
 
 ![banner](./banner.png)
 
+如果你现在正在用vuepress，如果你也想实现类似的功能，可以尝试一下[vuepress-plugin-code-block](https://github.com/yanyu-fe/vuepress-plugins/tree/main/plugins/code-block)
+
+
 ## 安装
 
 ```shell

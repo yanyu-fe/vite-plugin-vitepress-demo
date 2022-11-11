@@ -6,6 +6,8 @@ English | [简体中文](./README.zh-CN.md)
 
 ![banner](./banner.png)
 
+If you are using vuepress now, and you also want to achieve similar functions, you can try [vuepress-plugin-code-block](https://github.com/yanyu-fe/vuepress-plugins/tree/main/plugins/code-block)
+
 ## Install
 
 ```bash
