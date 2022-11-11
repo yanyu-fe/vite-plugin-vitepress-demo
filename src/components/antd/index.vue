@@ -4,15 +4,41 @@
       <component :is="demoComp" />
     </div>
     <div v-if="showInfo" class="demo-block__info">
-      <div v-if="showTitle && showTitle.length > 0" class="demo-block__info--title" v-html="showTitle" />
-      <div v-if="showDesc && showDesc.length > 0" class="demo-block__info--description" :class="{'demo-block__info--description__dashed':showDesc && showDesc.length > 0}" v-html="showDesc" />
+      <div
+        v-if="showTitle && showTitle.length > 0"
+        class="demo-block__info--title"
+        v-html="showTitle"
+      />
+      <div
+        v-if="showDesc && showDesc.length > 0"
+        class="demo-block__info--description"
+        :class="{
+          'demo-block__info--description__dashed':
+            showDesc && showDesc.length > 0,
+        }"
+        v-html="showDesc"
+      />
       <div v-if="highlightCode.length > 0" class="demo-block__actions">
-        <template v-if="isSupported">
-          <FileCopy v-if="!isCopied" class="demo-block__action" @click="copyCodeData" />
-          <FileSuccess v-else class="demo-block__action" style="color: var(--vp-c-brand)" />
-        </template>
-        <Expand v-if="!showCode" class="demo-block__action" @click="changeShow" />
-        <UnExpand v-if="showCode" class="demo-block__action" @click="changeShow" />
+        <FileCopy
+          v-if="!copied"
+          class="demo-block__action"
+          @click="copy(code)"
+        />
+        <FileSuccess
+          v-else
+          class="demo-block__action"
+          style="color: var(--vp-c-brand)"
+        />
+        <Expand
+          v-if="!showCode"
+          class="demo-block__action"
+          @click="changeShow"
+        />
+        <UnExpand
+          v-if="showCode"
+          class="demo-block__action"
+          @click="changeShow"
+        />
       </div>
     </div>
     <div v-if="showCode" class="code-demo" v-html="highlightCode" />
@@ -20,7 +46,14 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, defineAsyncComponent, onMounted, ref, shallowRef } from 'vue'
+import {
+  computed,
+  defineAsyncComponent,
+  onMounted,
+  ref,
+  shallowRef,
+} from 'vue'
+import { useClipboard } from '../../utils/useClipboard'
 import Expand from './icons/expand.vue'
 import UnExpand from './icons/UnExpand.vue'
 import FileCopy from './icons/FileCopy.vue'
@@ -44,6 +77,8 @@ const changeShow = () => {
   showCode.value = !showCode.value
 }
 
+const { copied, copy } = useClipboard()
+
 const isSupported = ref(false)
 const isCopied = ref(false)
 // 判断当前环境支不支持赋值
@@ -56,8 +91,9 @@ const copyCodeData = async() => {
   }, 1500)
 }
 
-const showInfo = computed(() =>
-  (highlightCode.value && highlightCode.value.length > 0)
+const showInfo = computed(
+  () =>
+    (highlightCode.value && highlightCode.value.length > 0)
     || (showDesc.value && showDesc.value.length > 0)
     || (showTitle.value && showTitle.value.length > 0),
 )
@@ -66,37 +102,33 @@ onMounted(async() => {
   const data = await import('virtual:vitepress-demo')
   const demos = data.default
   const demo = demos[props.src]
-  if (demo && demo.comp)
-    demoComp.value = defineAsyncComponent(demo.comp)
-  if (demo)
-    content.value = demo
-  if (navigator && 'clipboard' in navigator)
-    isSupported.value = true
+  if (demo && demo.comp) demoComp.value = defineAsyncComponent(demo.comp)
+  if (demo) content.value = demo
+  if (navigator && 'clipboard' in navigator) isSupported.value = true
 })
 </script>
 
 <style>
 @import "./demo.css";
 @import "./code.css";
-.code-demo code{
+.code-demo code {
   color: var(--vp-c-text-code);
 }
 </style>
 
 <style scoped>
-.demo-block{
+.demo-block {
   overflow: hidden;
 }
-.code-demo{
+.code-demo {
   overflow: auto;
   background-color: var(--vp-code-block-bg);
 }
-.demo-block div[class*='language-']{
+.demo-block div[class*="language-"] {
   background: none;
   margin: 1rem 0;
 }
-.demo-block div[class~='language-vue']:before{
+.demo-block div[class~="language-vue"]:before {
   content: "";
 }
-
 </style>
