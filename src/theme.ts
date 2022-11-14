@@ -1,9 +1,8 @@
-import DefaultTheme from './components/default/index.vue'
-import AntdTheme from './components/antd/index.vue'
-
+import { DefaultTheme } from './components'
+import './components/style.css'
 export {
   DefaultTheme,
   AntdTheme,
-}
+} from './components'
 
 export default DefaultTheme

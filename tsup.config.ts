@@ -6,7 +6,7 @@ export default defineConfig({
     'src/theme.ts',
   ],
   external: [
-    /^\.\/components\/.*\.vue$/,
+    /^.\/components/,
     'vite',
     'vitepress',
     'vue',

@@ -110,7 +110,6 @@ onMounted(async() => {
 
 <style>
 @import "./demo.css";
-@import "./code.css";
 .code-demo code {
   color: var(--vp-c-text-code);
 }
