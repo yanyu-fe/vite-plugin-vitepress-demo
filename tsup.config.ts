@@ -12,6 +12,6 @@ export default defineConfig({
     'vue',
     'markdown-it',
   ],
-  format: 'esm',
+  format: ['esm', 'cjs'],
   dts: true,
 })

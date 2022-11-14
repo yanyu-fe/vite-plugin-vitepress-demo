@@ -7,4 +7,5 @@ export default defineBuildConfig({
       outDir: 'dist/components',
     },
   ],
+  declaration: true,
 })

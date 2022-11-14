@@ -1,9 +1,9 @@
 {
   "name": "vite-plugin-vitepress-demo",
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0-beta.7",
   "description": "A vite plugin for vitepress code block demo.",
   "main": "dist/index.js",
-  "type": "module",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
@@ -12,16 +12,19 @@
   "homepage": "https://github.com/yanyu-fe/vite-plugin-vitepress-demo/#readme",
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     },
     "./theme": {
-      "import": "./dist/theme.js"
+      "import": "./dist/theme.mjs",
+      "require": "./dist/theme.js"
     },
     "./components/*": {
       "import": "./dist/components/*"
     },
     "./dist/theme": {
-      "import": "./dist/theme.js"
+      "import": "./dist/theme.mjs",
+      "require": "./dist/theme.js"
     },
     "./dist/components/*": {
       "import": "./dist/components/*"
