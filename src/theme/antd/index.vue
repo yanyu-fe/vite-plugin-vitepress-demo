@@ -53,11 +53,11 @@ import {
   ref,
   shallowRef,
 } from 'vue'
-import { useClipboard } from '../utils/useClipboard'
-import Expand from './icons/expand.vue'
-import UnExpand from './icons/UnExpand.vue'
-import FileCopy from './icons/FileCopy.vue'
-import FileSuccess from './icons/FileSuccess.vue'
+import { useClipboard } from '/@/VITEPRESS_THEME/utils/useClipboard'
+import Expand from '/@/VITEPRESS_THEME/antd/icons/expand.vue'
+import UnExpand from '/@/VITEPRESS_THEME/antd/icons/UnExpand.vue'
+import FileCopy from '/@/VITEPRESS_THEME/antd/icons/FileCopy.vue'
+import FileSuccess from '/@/VITEPRESS_THEME/antd/icons/FileSuccess.vue'
 
 const props = defineProps<{ src: string; title: string; desc: string }>()
 const demoComp = shallowRef()

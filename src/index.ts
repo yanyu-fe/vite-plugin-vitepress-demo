@@ -1,9 +1,11 @@
+import { fileURLToPath } from 'url'
 import type { PluginOption, ResolvedConfig } from 'vite'
 import type { MarkdownRenderer } from 'vitepress'
 import { createMarkdownRenderer } from 'vitepress'
 import { normalizePath } from 'vite'
 import type { UserOptions } from './typing'
 import { Parser } from './parser'
+const themePath = fileURLToPath(new URL('./theme', import.meta.url))
 
 const vitePluginVitepressDemo = (_opt?: UserOptions): PluginOption => {
   let config: ResolvedConfig
@@ -22,6 +24,7 @@ const vitePluginVitepressDemo = (_opt?: UserOptions): PluginOption => {
         resolve: {
           alias: {
             [aliasName]: path,
+            '/@/VITEPRESS_THEME': themePath,
           },
         },
         ssr: {
