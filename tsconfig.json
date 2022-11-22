@@ -1,9 +1,3 @@
 {
-    "extends": "@mistjs/tsconfig-vue",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "/@/VITEPRESS_THEME/*": ["src/theme/*"],
-        }
-    }
+    "extends": "@mistjs/tsconfig-vue"
 }
