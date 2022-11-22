@@ -10,30 +10,6 @@
     "url": "git+https://github.com/yanyu-fe/vite-plugin-vitepress-demo.git"
   },
   "homepage": "https://github.com/yanyu-fe/vite-plugin-vitepress-demo/#readme",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./theme": {
-      "import": "./dist/theme/index.mjs",
-      "types": "./dist/theme/index.d.ts"
-    },
-    "./dist/theme": {
-      "import": "./dist/theme/index.mjs"
-    },
-    "./theme/**": {
-      "import": "./dist/theme/**",
-      "types": "./dist/theme/index.d.ts"
-    },
-    "./dist/theme/**": {
-      "import": "./dist/theme/**",
-      "types": "./dist/theme/index.d.ts"
-    },
-    "./dist/theme/**/*.vue": {
-      "import": "./dist/theme/**/*.vue"
-    }
-  },
   "files": [
     "dist",
     "README.md",
