@@ -59,7 +59,7 @@ export default defineConfig({
 
 在2.x版本中，我们支持了自定义组件，但是自定义组件必须和内置组件具有相同的API。
 
-如若我们的自带的主题满足不了你们的需求，那么你可以参考我们的[默认主题](https://github.com/yanyu-fe/vite-plugin-vitepress-demo/tree/main/src/components)自定义自己的主题。
+如若我们的自带的主题满足不了你们的需求，那么你可以参考我们的[默认主题](https://github.com/yanyu-fe/vite-plugin-vitepress-demo/tree/main/src/theme)自定义自己的主题。
 
 同时也欢迎大家提交PR，让我们的主题更加完善。
 

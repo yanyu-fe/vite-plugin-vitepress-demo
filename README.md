@@ -57,7 +57,7 @@ We support custom component in `2.x` version.
 
 But it needs to be consistent with our props.
 
-If our built-in themes do not meet your needs, you can refer to our [default theme](https://github.com/yanyu-fe/vite-plugin-vitepress-demo/tree/main/src/components) to customize your own theme.
+If our built-in themes do not meet your needs, you can refer to our [default theme](https://github.com/yanyu-fe/vite-plugin-vitepress-demo/tree/main/src/theme) to customize your own theme.
 
 At the same time, everyone is welcome to submit PR to make our theme more perfect.
 
