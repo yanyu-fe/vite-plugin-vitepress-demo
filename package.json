@@ -16,24 +16,22 @@
       "require": "./dist/index.js"
     },
     "./theme": {
-      "import": "./dist/theme.mjs",
-      "require": "./dist/theme.js"
-    },
-    "./dist/components": {
-      "import": "./dist/components/index.mjs"
-    },
-    "./components": {
-      "import": "./dist/components/index.mjs"
-    },
-    "./components/**": {
-      "import": "./dist/components/**"
-    },
-    "./dist/components/**": {
-      "import": "./dist/components/**"
+      "import": "./dist/theme/index.mjs",
+      "types": "./dist/theme/index.d.ts"
     },
     "./dist/theme": {
-      "import": "./dist/theme.mjs",
-      "require": "./dist/theme.js"
+      "import": "./dist/theme/index.mjs"
+    },
+    "./theme/**": {
+      "import": "./dist/theme/**",
+      "types": "./dist/theme/index.d.ts"
+    },
+    "./dist/theme/**": {
+      "import": "./dist/theme/**",
+      "types": "./dist/theme/index.d.ts"
+    },
+    "./dist/theme/**/*.vue": {
+      "import": "./dist/theme/**/*.vue"
     }
   },
   "files": [
@@ -49,7 +47,7 @@
     "un:build": "unbuild",
     "vite:build": "vite build",
     "ts:build": "tsup",
-    "cp:theme": "cpx dist/theme.d.ts ./",
+    "cp:theme": "cpx dist/theme/theme.d.ts ./",
     "docs:dev": "vitepress dev example",
     "docs:build": "vitepress build example",
     "docs:preview": "vitepress serve example",

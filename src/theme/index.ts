@@ -5,3 +5,5 @@ export {
   AntdTheme,
   DefaultTheme,
 }
+
+export default DefaultTheme

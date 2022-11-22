@@ -24,6 +24,9 @@ const vitePluginVitepressDemo = (_opt?: UserOptions): PluginOption => {
             [aliasName]: path,
           },
         },
+        ssr: {
+          noExternal: ['vite-plugin-vitepress-demo'],
+        },
       }
     },
     async buildStart() {

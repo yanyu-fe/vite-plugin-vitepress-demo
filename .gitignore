@@ -6,4 +6,4 @@ node_modules
 *.local
 dist
 theme.d.ts
-components
+theme
