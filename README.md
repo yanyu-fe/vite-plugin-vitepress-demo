@@ -1,6 +1,6 @@
 # vite-plugin-vitepress-demo
 
-A vite plugin that helps you generate Vue component code blocks through vitepress.
+A vite plugin that helps vitepress generate vue component code blocks.
 
 English | [简体中文](./README.zh-CN.md)
 
