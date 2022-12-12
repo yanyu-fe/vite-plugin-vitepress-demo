@@ -33,7 +33,7 @@ const parserAttr = async(md: Parser, attrs?: Record<string, any>): Promise<DemoA
   const code = code1?.code
   const docs: any[] = code1?.docs ?? []
   const title = docs.length > 0 ? docs[0].title : attrs?.title
-  const desc = docs.length > 0 ? docs[0].desc : attrs?.desc
+  const desc = docs.length > 0 ? (docs[0].desc || attrs?.desc) : attrs?.desc
   const highlight = code1?.highlight
   return {
     raw,

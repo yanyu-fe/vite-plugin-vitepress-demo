@@ -1,5 +1,5 @@
 
-<demo src="./demos/basic.vue" title="Basic" desc="This is Basic demo"></demo>
+<demo src="./demos/basic.vue" title="Basic Demo" desc="This is Basic demo"></demo>
 
 <demo src="./demos/basic.vue" raw></demo>
 

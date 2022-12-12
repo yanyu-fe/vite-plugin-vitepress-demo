@@ -27,7 +27,7 @@ export const renderCode = async(code?: string, md?: Parser) => {
       arr.push({
         locale: locale || undefined,
         title,
-        desc: encodeURIComponent(html),
+        desc: html && html.length > 0 ? encodeURIComponent(html) : undefined,
       })
 
       s.replace(doc, '')
