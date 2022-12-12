@@ -45,7 +45,6 @@
     "build": "run-s clean ts:build un:build cp:theme",
     "clean": "rimraf dist theme",
     "un:build": "unbuild",
-    "vite:build": "vite build",
     "ts:build": "tsup",
     "cp:theme": "cpx dist/theme/index.d.ts ./theme",
     "docs:dev": "vitepress dev example",
