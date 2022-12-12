@@ -59,7 +59,7 @@ import UnExpand from './icons/UnExpand.vue'
 import FileCopy from './icons/FileCopy.vue'
 import FileSuccess from './icons/FileSuccess.vue'
 
-const props = defineProps<{ src: string; title: string; desc: string }>()
+const props = defineProps<{ src: string; title?: string; desc?: string }>()
 const demoComp = shallowRef()
 const content = shallowRef<Record<string, any>>()
 const decode = (str?: string) => {
